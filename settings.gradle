@@ -16,4 +16,6 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "대소고 이적시장"
-include ':app'
+include ':presentation'
+include ':data'
+include ':domain'

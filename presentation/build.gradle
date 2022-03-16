@@ -75,4 +75,7 @@ dependencies {
 
     //dataStore
     implementation "androidx.datastore:datastore:$dataStore_version"
+
+    implementation project(":data")
+    implementation project(":domain")
 }
