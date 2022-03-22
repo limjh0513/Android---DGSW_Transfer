@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/ljh04/Documents/GitHub/Android_DGSW_Transfer/app/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/ljh04/Documents/GitHub/Android_DGSW_Transfer/presentation/src/main/res/drawable/background_button_deadline.xml" value="0.2925" />
+        <entry key="..\:/Users/ljh04/Documents/GitHub/Android_DGSW_Transfer/presentation/src/main/res/drawable/background_completion.xml" value="0.2925" />
+        <entry key="..\:/Users/ljh04/Documents/GitHub/Android_DGSW_Transfer/presentation/src/main/res/layout/item_request.xml" value="0.36614583333333334" />
       </map>
     </option>
   </component>

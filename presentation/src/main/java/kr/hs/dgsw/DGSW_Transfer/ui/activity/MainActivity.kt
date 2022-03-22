@@ -1,7 +1,8 @@
-package kr.hs.dgsw.DGSW_Transfer
+package kr.hs.dgsw.DGSW_Transfer.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import kr.hs.dgsw.DGSW_Transfer.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

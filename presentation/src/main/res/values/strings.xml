@@ -1,3 +1,30 @@
 <resources>
     <string name="app_name">대소고 이적시장</string>
+
+    <string name="string_tag_all">전체</string>
+    <string name="string_tag_emergency">긴급🚨</string>
+    <string name="string_tag_soccer">축구⚽</string>
+    <string name="string_tag_badminton">배드민턴🏸</string>
+    <string name="string_tag_basketball">농구🏀</string>
+    <string name="string_tag_etc">기타</string>
+
+    <string name="string_apply">이적 신청</string>
+    <string name="string_closing">조기 마감</string>
+    <string name="string_cancel">취소</string>
+    <string name="string_await">대기</string>
+    <string name="string_confirmed">확정</string>
+
+    <string name="string_writer">작성자</string>
+    <string name="string_place">위치</string>
+    <string name="string_deadline">마감</string>
+
+    <string name="string_request">이적 요청</string>
+    <string name="string_title">제목</string>
+    <string name="string_category">운동 종목(축구, 배드민턴, 농구, 기타)</string>
+    <string name="string_where">운동 할 위치</string>
+    <string name="string_number">같이 운동 할 인원 수</string>
+    <string name="string_time">마감 및 운동 할 시간</string>
+    <string name="string_anonymous">익명</string>
+    <string name="string_hiding">이적 신청 리스트 숨김</string>
+    <string name="string_requestend">이적 요청 작성 완료</string>
 </resources>

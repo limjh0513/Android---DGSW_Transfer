@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.대소고이적시장">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
