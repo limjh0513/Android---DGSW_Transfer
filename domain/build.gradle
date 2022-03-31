@@ -1,0 +1,46 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        minSdk 24
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+}
+
+dependencies {
+    implementation ("androidx.core:core-ktx:$core_version")
+    implementation ("androidx.appcompat:appcompat:$appcompat_version")
+    implementation ("com.google.android.material:material:$material_version")
+    implementation ("androidx.constraintlayout:constraintlayout:$constraint_version")
+    testImplementation ("junit:junit:$junit_version")
+    androidTestImplementation ("androidx.test.ext:junit:$testJunit_version")
+    androidTestImplementation ("androidx.test.espresso:espresso-core:$espresso_version")
+
+    //retrofit2 AND gson
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3_version"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit2_version"
+    implementation "com.squareup.retrofit2:converter-gson:$gson_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit2_version"
+
+    //rxjava
+    implementation "io.reactivex.rxjava3:rxjava:$rxJava_version"
+    implementation "io.reactivex.rxjava3:rxandroid:$rxAndroid_version"
+
+    //hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+
+    //dataStore
+    implementation "androidx.datastore:datastore:$dataStore_version"
+}
