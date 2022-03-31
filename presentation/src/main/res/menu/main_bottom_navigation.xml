@@ -4,17 +4,17 @@
         android:id="@+id/page_write"
         android:enabled="true"
         android:icon="@drawable/ic_write"
-        android:title="작성" />
+        android:title="@string/write" />
 
     <item
         android:id="@+id/page_home"
         android:enabled="true"
         android:icon="@drawable/ic_home"
-        android:title="홈" />
+        android:title="@string/home" />
 
     <item
         android:id="@+id/page_user"
         android:enabled="true"
         android:icon="@drawable/ic_humen"
-        android:title="유저" />
+        android:title="@string/user" />
 </menu>

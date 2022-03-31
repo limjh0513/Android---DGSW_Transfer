@@ -33,4 +33,6 @@
     <color name="color_tag_basketball">#E5A577</color>
     <color name="color_tag_etc">#5758BB</color>
 
+    <color name="color_hint">#BDBDBD</color>
+
 </resources>
