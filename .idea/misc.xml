@@ -5,7 +5,14 @@
       <map>
         <entry key="..\:/Users/ljh04/Desktop/DGSW_Sport_Recruit/presentation/src/main/res/drawable-v24/ic_home.xml" value="0.245" />
         <entry key="..\:/Users/ljh04/Desktop/DGSW_Sport_Recruit/presentation/src/main/res/drawable/ic_home.xml" value="0.245" />
-        <entry key="..\:/Users/ljh04/Documents/GitHub/DGSW_Sport_recruit_Android/presentation/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/ljh04/Documents/GitHub/DGSW_Sport_recruit_Android/presentation/src/main/res/drawable/background_post_item.xml" value="0.246" />
+        <entry key="..\:/Users/ljh04/Documents/GitHub/DGSW_Sport_recruit_Android/presentation/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/ljh04/Documents/GitHub/DGSW_Sport_recruit_Android/presentation/src/main/res/layout/fragment_blank.xml" value="0.19479166666666667" />
+        <entry key="..\:/Users/ljh04/Documents/GitHub/DGSW_Sport_recruit_Android/presentation/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/ljh04/Documents/GitHub/DGSW_Sport_recruit_Android/presentation/src/main/res/layout/fragment_user.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/ljh04/Documents/GitHub/DGSW_Sport_recruit_Android/presentation/src/main/res/layout/fragment_write.xml" value="0.22" />
+        <entry key="..\:/Users/ljh04/Documents/GitHub/DGSW_Sport_recruit_Android/presentation/src/main/res/layout/post_item.xml" value="0.33" />
+        <entry key="..\:/Users/ljh04/Documents/GitHub/DGSW_Sport_recruit_Android/presentation/src/main/res/menu/main_bottom_navigation.xml" value="0.36614583333333334" />
       </map>
     </option>
   </component>

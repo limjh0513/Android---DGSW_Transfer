@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/background_post_item">
+
+        <TextView
+            android:id="@+id/item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/jalnan"
+            android:textColor="@color/color_main"
+            android:textSize="@dimen/dimen_item_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="축구 할 사람? - 운동장" />
+
+        <TextView
+            android:id="@+id/item_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen_item_content"
+            app:layout_constraintStart_toStartOf="@+id/item_title"
+            app:layout_constraintTop_toBottomOf="@+id/item_title"
+            tools:text="오늘 수업 끝나고 축구 할 사람" />
+
+        <TextView
+            android:id="@+id/item_personnel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/jalnan"
+            android:textColor="@color/color_safe"
+            android:textSize="@dimen/dimen_item_personnel"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_content"
+            tools:text="1/12" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/jalnan"
+            android:gravity="right"
+            android:textColor="@color/color_main"
+            android:textSize="@dimen/dimen_item_time"
+            app:layout_constraintEnd_toEndOf="@+id/item_personnel"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="2022/03/31\n11:25" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
