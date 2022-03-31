@@ -1,2 +1,2 @@
-# Android---DGSW_Transfer
-대소고 이적시장 Android Repository
+# DGSW_Sport_Recruit Android
+대스모(대소고 스포츠인 모집) Android Repository
