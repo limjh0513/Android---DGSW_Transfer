@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="vm"
             type="kr.hs.dgsw.sport_recruit.viewmodel.MainViewModel" />
@@ -16,6 +17,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/color_background"
         tools:context=".ui.activity.MainActivity">
 
 

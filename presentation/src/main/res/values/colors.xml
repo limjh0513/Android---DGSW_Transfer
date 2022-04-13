@@ -35,4 +35,6 @@
 
     <color name="color_hint">#BDBDBD</color>
 
+    <color name="color_register">#F3E350</color>
+
 </resources>

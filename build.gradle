@@ -26,6 +26,7 @@ ext {
     hilt_version = "2.40.5"
     navigation_version = "2.4.1"
     dataStore_version = "1.0.0"
+    circleImage_version = "3.1.0"
 }
 
 

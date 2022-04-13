@@ -19,13 +19,13 @@ android {
 }
 
 dependencies {
-    implementation ("androidx.core:core-ktx:$core_version")
-    implementation ("androidx.appcompat:appcompat:$appcompat_version")
-    implementation ("com.google.android.material:material:$material_version")
-    implementation ("androidx.constraintlayout:constraintlayout:$constraint_version")
-    testImplementation ("junit:junit:$junit_version")
-    androidTestImplementation ("androidx.test.ext:junit:$testJunit_version")
-    androidTestImplementation ("androidx.test.espresso:espresso-core:$espresso_version")
+    implementation "androidx.core:core-ktx:$core_version"
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+    implementation "com.google.android.material:material:$material_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_version"
+    testImplementation "junit:junit:$junit_version"
+    androidTestImplementation "androidx.test.ext:junit:$testJunit_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
 
     //retrofit2 AND gson
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3_version"
