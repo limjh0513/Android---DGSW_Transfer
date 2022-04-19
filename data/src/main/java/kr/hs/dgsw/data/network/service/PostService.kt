@@ -22,7 +22,7 @@ interface PostService {
     fun getCategoryPost(@Path("category") category: Int): Single<Response<BaseResponse<List<AllPostResponse>>>>
 
     @GET("post/state/{state}")
-    fun getStatePost(@Path("state") state: Int): Single<Response<BaseResponse<AllPostResponse>>>
+    fun getStatePost(@Path("state") state: Int): Single<Response<BaseResponse<List<AllPostResponse>>>>
 
     @GET("post/detail/{postIdx}")
     fun getDetailPost(@Path("postIdx") postIdx: Int): Single<Response<BaseResponse<DetailPostResponse>>>
