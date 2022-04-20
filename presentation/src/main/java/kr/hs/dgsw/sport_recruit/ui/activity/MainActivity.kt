@@ -1,6 +1,7 @@
 package kr.hs.dgsw.sport_recruit.ui.activity
 
 import androidx.activity.viewModels
+import dagger.hilt.android.AndroidEntryPoint
 import kr.hs.dgsw.sport_recruit.R
 import kr.hs.dgsw.sport_recruit.base.BaseActivity
 import kr.hs.dgsw.sport_recruit.databinding.ActivityMainBinding
@@ -9,6 +10,7 @@ import kr.hs.dgsw.sport_recruit.ui.fragment.UserFragment
 import kr.hs.dgsw.sport_recruit.ui.fragment.WriteFragment
 import kr.hs.dgsw.sport_recruit.viewmodel.MainViewModel
 
+@AndroidEntryPoint
 class MainActivity :
     BaseActivity<ActivityMainBinding, MainViewModel>() {
     override val mViewModel: MainViewModel by viewModels()

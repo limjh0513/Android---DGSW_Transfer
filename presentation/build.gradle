@@ -55,7 +55,7 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3_version"
     implementation "com.squareup.retrofit2:retrofit:$retrofit2_version"
     implementation "com.squareup.retrofit2:converter-gson:$gson_version"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit2_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava3:$retrofit2_version"
 
     //activity AND fragment
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
