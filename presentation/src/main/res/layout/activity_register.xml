@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="kr.hs.dgsw.sport_recruit.viewmodel.RegisterViewModel" />
+
+        <variable
+            name="activity"
+            type="kr.hs.dgsw.sport_recruit.ui.activity.RegisterActivity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activity.RegisterActivity">
+
+        <ImageButton
+            android:id="@+id/register_backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/transparent"
+            android:onClick="@{() -> activity.finish()}"
+            android:padding="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_backarrow" />
+
+        <EditText
+            android:id="@+id/registerEt_id"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:hint="@string/string_register_id"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:textColorHint="@color/color_hint"
+            android:textSize="@dimen/dimen_register"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/register_backBtn" />
+
+        <EditText
+            android:id="@+id/registerEt_pw"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:hint="@string/string_register_pw"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:textColorHint="@color/color_hint"
+            android:textSize="@dimen/dimen_register"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/registerEt_id"
+            app:passwordToggleTint="#FFF" />
+
+        <EditText
+            android:id="@+id/registerEt_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:hint="@string/string_register_name"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:textColorHint="@color/color_hint"
+            android:textSize="@dimen/dimen_register"
+            app:layout_constraintBottom_toTopOf="@+id/registerEt_profile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/registerEt_pw" />
+
+        <EditText
+            android:id="@+id/registerEt_profile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:hint="@string/string_register_profile"
+            android:inputType="textUri"
+            android:minHeight="48dp"
+            android:textColorHint="@color/color_hint"
+            android:textSize="@dimen/dimen_register"
+            app:layout_constraintBottom_toTopOf="@+id/registerEt_grade"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <EditText
+            android:id="@+id/registerEt_grade"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:hint="@string/string_register_grade"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:textColorHint="@color/color_hint"
+            android:textSize="@dimen/dimen_register"
+            app:layout_constraintBottom_toTopOf="@+id/registerEt_room"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/registerEt_room"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:hint="@string/string_register_room"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:textColorHint="@color/color_hint"
+            android:textSize="@dimen/dimen_register"
+            app:layout_constraintBottom_toTopOf="@+id/registerEt_number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/registerEt_number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:hint="@string/string_register_number"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:textColorHint="@color/color_hint"
+            android:textSize="@dimen/dimen_register"
+            app:layout_constraintBottom_toTopOf="@+id/register_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/register_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/background_button_register"
+            android:fontFamily="@font/jalnan"
+            android:onClick="@{() -> activity.onClickRegisterBtn()}"
+            android:text="@string/string_register"
+            android:textColor="@color/white"
+            android:textColorHint="@color/color_hint"
+            android:textSize="@dimen/dimen_register"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

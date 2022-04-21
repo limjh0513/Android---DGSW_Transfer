@@ -33,6 +33,7 @@ abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel> : Fragment
 
     private fun viewModelProvider() {
         mBinding.setVariable(BR.vm, mViewModel)
+        mBinding.setVariable(BR.fragment, this)
         mBinding.lifecycleOwner = this
         mBinding.executePendingBindings()
     }

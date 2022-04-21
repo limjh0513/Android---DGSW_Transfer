@@ -33,6 +33,11 @@
     <color name="color_tag_basketball">#E5A577</color>
     <color name="color_tag_etc">#5758BB</color>
 
+
+    <color name="color_tag_selected">#00A8FF</color>
+    <color name="color_tag_notSelected">#BCBCBC</color>
+    <color name="color_tag_line">#828282</color>
+
     <color name="color_hint">#BDBDBD</color>
 
     <color name="color_register">#F3E350</color>

@@ -8,6 +8,11 @@
         <variable
             name="vm"
             type="kr.hs.dgsw.sport_recruit.viewmodel.UserViewModel" />
+
+        <variable
+            name="fragment"
+            type="kr.hs.dgsw.sport_recruit.ui.fragment.UserFragment" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

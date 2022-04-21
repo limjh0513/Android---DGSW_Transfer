@@ -24,4 +24,6 @@
     <dimen name="dimen_detail_personnel">28sp</dimen>
     <dimen name="dimen_detail_count">48sp</dimen>
 
+    <dimen name="dimen_register">18sp</dimen>
+
 </resources>
