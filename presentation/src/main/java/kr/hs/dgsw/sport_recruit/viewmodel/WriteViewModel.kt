@@ -29,7 +29,6 @@ class WriteViewModel @Inject constructor(private val writePostUseCase: WritePost
         val isAnonymous = if (anonymous.value!!) 1 else 0
         val isHidden = if (hidden.value!!) 1 else 0
 
-
         addDisposable(writePostUseCase.buildUseCaseObservable(WritePostUseCase.Params(
             WriteRequest(
                 title.value.toString(),

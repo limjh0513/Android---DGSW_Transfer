@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="kr.hs.dgsw.sport_recruit.viewmodel.DetailViewModel" />
+
+        <variable
+            name="activity"
+            type="kr.hs.dgsw.sport_recruit.ui.activity.DetailActivity" />
+
+        <variable
+            name="categoryChanger"
+            type="kr.hs.dgsw.sport_recruit.util.CategoryChangerKt" />
+
+        <variable
+            name="post"
+            type="kr.hs.dgsw.domain.model.DetailPost" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activity.DetailActivity">
+
+        <ImageButton
+            android:id="@+id/detail_backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/transparent"
+            android:onClick="@{() -> activity.finish()}"
+            android:padding="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_backarrow" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageView"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_humen"
+            app:civ_border_color="@color/color_image_boarder"
+            app:civ_border_width="2dp"
+            app:layout_constraintBottom_toBottomOf="@+id/detail_backBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/detail_tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@{post.writter}"
+            app:layout_constraintBottom_toBottomOf="@+id/circleImageView"
+            app:layout_constraintEnd_toStartOf="@+id/circleImageView"
+            app:layout_constraintTop_toTopOf="@+id/circleImageView" />
+
+        <TextView
+            android:id="@+id/detail_hintName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:text="@string/string_writer"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen_detail_writer"
+            app:layout_constraintBottom_toBottomOf="@+id/detail_tvName"
+            app:layout_constraintEnd_toStartOf="@+id/detail_tvName"
+            app:layout_constraintTop_toTopOf="@+id/detail_tvName"
+            app:setImage="@{post.writterImage}" />
+
+        <TextView
+            android:id="@+id/detail_tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/jalnan"
+            android:text="@{post.title}"
+            android:textColor="@color/color_main"
+            android:textSize="@dimen/dimen_write_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_backBtn" />
+
+        <TextView
+            android:id="@+id/detail_tvCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/jalnan"
+            android:text="@{categoryChanger.categoryToString(post.category)}"
+            android:textColor="@color/color_main"
+            android:textSize="@dimen/dimen_write_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_tvTitle" />
+
+        <TextView
+            android:id="@+id/detail_hintPlace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/jalnan"
+            android:text="@string/string_place"
+            android:textColor="@color/color_place"
+            android:textSize="@dimen/dimen_detail_sub"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_tvCategory" />
+
+        <TextView
+            android:id="@+id/detail_tvPlace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:fontFamily="@font/jalnan"
+            android:text="@{post.title}"
+            android:textColor="@color/color_place"
+            android:textSize="@dimen/dimen_detail_sub"
+            app:layout_constraintBottom_toBottomOf="@+id/detail_hintPlace"
+            app:layout_constraintStart_toEndOf="@+id/detail_hintPlace"
+            app:layout_constraintTop_toTopOf="@+id/detail_hintPlace" />
+
+        <TextView
+            android:id="@+id/detail_hintDeadline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/jalnan"
+            android:text="@string/string_deadline"
+            android:textColor="@color/color_translator"
+            android:textSize="@dimen/dimen_detail_sub"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_hintPlace" />
+
+        <TextView
+            android:id="@+id/detail_tvDeadline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/jalnan"
+            android:text="@{post.time.toString()}"
+            android:textColor="@color/color_translator"
+            android:textSize="@dimen/dimen_detail_sub"
+            app:layout_constraintBottom_toBottomOf="@+id/detail_hintDeadline"
+            app:layout_constraintStart_toEndOf="@+id/detail_hintDeadline"
+            app:layout_constraintTop_toTopOf="@+id/detail_hintDeadline" />
+
+
+        <TextView
+            android:id="@+id/detail_hintPerson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="32dp"
+            android:fontFamily="@font/jalnan"
+            android:text="@string/string_currentPerson"
+            android:textColor="@color/color_main"
+            android:textSize="@dimen/dimen_detail_personnel"
+            app:layout_constraintBottom_toTopOf="@+id/detail_applyBtn"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/detail_tvPerson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/jalnan"
+            android:textSize="@dimen/dimen_detail_personnel"
+            app:setPersonalForDetail="@{post}"
+            app:layout_constraintBottom_toBottomOf="@+id/detail_hintPerson"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/detail_hintPerson"
+            app:layout_constraintTop_toTopOf="@+id/detail_hintPerson" />
+
+        <Button
+            android:id="@+id/detail_applyBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/background_button_completion"
+            android:fontFamily="@font/jalnan"
+            android:padding="14dp"
+            android:text="@string/string_apply"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_detail_sub"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/detail_tvContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:text="@{post.content}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen_detail_content"
+            app:layout_constraintBottom_toTopOf="@+id/detail_hintPerson"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_hintDeadline" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

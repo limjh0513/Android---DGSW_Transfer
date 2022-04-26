@@ -13,6 +13,10 @@
             name="fragment"
             type="kr.hs.dgsw.sport_recruit.ui.fragment.UserFragment" />
 
+        <variable
+            name="user"
+            type="kr.hs.dgsw.domain.model.User" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,9 +28,12 @@
             android:layout_width="96dp"
             android:layout_height="96dp"
             android:layout_marginTop="32dp"
+            app:civ_border_color="@color/color_image_boarder"
+            app:civ_border_width="2dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:setImage="@{user.profileImage}"
             tools:src="@drawable/ic_humen" />
 
         <TextView
@@ -35,12 +42,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/jalnan"
+            android:text="@{user.name}"
             android:textColor="@color/black"
             android:textSize="@dimen/dimen_my_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profile_image"
-            tools:text="임재현" />
+            app:layout_constraintTop_toBottomOf="@+id/profile_image" />
 
         <TextView
             android:id="@+id/user_tvNumber"
@@ -53,7 +60,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/user_tvName"
-            tools:text="3-2-12" />
+            app:setGrade="@{user}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

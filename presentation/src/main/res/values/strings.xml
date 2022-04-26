@@ -8,8 +8,8 @@
     <string name="string_tag_all">전체</string>
     <string name="string_tag_emergency">긴급🚨</string>
     <string name="string_tag_soccer">축구⚽</string>
-    <string name="string_tag_badminton">배드민턴🏸</string>
-    <string name="string_tag_basketball">농구🏀</string>
+    <string name="string_tag_badminton">배드민턴</string>
+    <string name="string_tag_basketball">농구</string>
     <string name="string_tag_etc">기타</string>
 
     <string name="string_apply">참가 신청</string>
@@ -18,9 +18,10 @@
     <string name="string_await">대기</string>
     <string name="string_confirmed">확정</string>
 
-    <string name="string_writer">작성자</string>
-    <string name="string_place">위치</string>
-    <string name="string_deadline">마감</string>
+    <string name="string_writer">작성자 :</string>
+    <string name="string_place">위치 -</string>
+    <string name="string_deadline">마감 -</string>
+    <string name="string_currentPerson">현재 신청 인원</string>
 
     <string name="string_write">모집 글 작성</string>
     <string name="string_title">제목</string>

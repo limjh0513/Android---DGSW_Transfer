@@ -1,5 +1,7 @@
 package kr.hs.dgsw.domain.model
 
+import android.os.Parcelable
+import java.io.Serializable
 import java.sql.Timestamp
 
 data class DetailPost(
@@ -14,4 +16,4 @@ data class DetailPost(
     val state: Int,
     val category: Int,
     val hidden: Int
-)
+): Serializable

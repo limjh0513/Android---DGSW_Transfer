@@ -75,6 +75,9 @@ dependencies {
     //circle imageview
     implementation "de.hdodenhof:circleimageview:$circleImage_version"
 
+    //glide
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+
     implementation project(":data")
     implementation project(":domain")
 }
