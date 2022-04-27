@@ -23,8 +23,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         setTabLayout()
         setRecyclerView()
         with(mViewModel) {
-            onSuccessGetPost.observe(this@HomeFragment, Observer {
-                adapter.submitList(it)
+            onSuccessGetAllPost.observe(this@HomeFragment, Observer {
+                adapter.submitList(it.toMutableList())
+            })
+            onSuccessGetStatePost.observe(this@HomeFragment, Observer {
+                adapter.submitList(it.toMutableList())
+            })
+            onSuccessGetCategoryPost.observe(this@HomeFragment, Observer {
+                adapter.submitList(it.toMutableList())
             })
             onErrorEvent.observe(this@HomeFragment, Observer {
                 this@HomeFragment.toast(requireContext(), "오류 발생 ${it.message}")
@@ -33,6 +39,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     }
 
     private fun setRecyclerView() {
+        adapter.context = this.requireActivity()
         mBinding.homeRecycler.adapter = adapter
         mViewModel.getAllPost()
     }

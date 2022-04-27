@@ -1,7 +1,9 @@
 package kr.hs.dgsw.sport_recruit.util
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import de.hdodenhof.circleimageview.CircleImageView
@@ -13,44 +15,71 @@ import kotlin.math.roundToInt
 
 object BindingAdapter {
 
-    @BindingAdapter("app:setGrade")
+    @BindingAdapter("setGrade")
     @JvmStatic
-    fun setGradeTv(textView: TextView, user: User) {
-        textView.text = "${user.grade}-${user.room}-${user.number}"
+    fun setGradeTv(textView: TextView, user: User?) {
+        if (user != null) {
+            textView.text = "${user.grade}-${user.room}-${user.number}"
+        }
     }
 
-    @BindingAdapter("app:setImage")
+    @BindingAdapter("setImage")
     @JvmStatic
-    fun setImage(circleImageView: CircleImageView, url: String) {
-        Glide.with(circleImageView.context).load(url).error(R.drawable.ic_humen)
-            .into(circleImageView)
+    fun setImage(circleImageView: CircleImageView, url: String?) {
+        if (url != null) {
+            Glide.with(circleImageView.context).load(url).error(R.drawable.ic_humen)
+                .into(circleImageView)
+        }
     }
 
     @SuppressLint("ResourceAsColor")
-    @BindingAdapter("app:setPersonalForDetail")
+    @BindingAdapter("setPersonalForDetail")
     @JvmStatic
-    fun setDetailPersonal(textView: TextView, post: DetailPost){
-        when(((post.currentPersonal / post.personal.toFloat()) * 100).roundToInt()){
-            in 0..33 -> textView.setTextColor(R.color.color_safe)
-            in 34..66 -> textView.setTextColor(R.color.color_caution)
-            in 67..99 -> textView.setTextColor(R.color.color_danger)
-            else -> textView.setTextColor(R.color.color_end)
+    fun setDetailPersonal(textView: TextView, post: DetailPost?) {
+        if (post != null) {
+            Log.e("asdf",
+                "${((post.currentPersonal / post.personal.toFloat()) * 100).roundToInt()}")
+
+            when (((post.currentPersonal / post.personal.toFloat()) * 100).roundToInt()) {
+                in 0..33 -> textView.setTextColor(ContextCompat.getColor(textView.context,
+                    R.color.color_safe))
+                in 34..66 -> textView.setTextColor(ContextCompat.getColor(textView.context,
+                    R.color.color_caution))
+                in 67..99 -> textView.setTextColor(ContextCompat.getColor(textView.context,
+                    R.color.color_danger))
+                else -> textView.setTextColor(ContextCompat.getColor(textView.context,
+                    R.color.color_end))
+            }
+
+            textView.text = "${post.currentPersonal}/${post.personal}"
+        }
+    }
+
+    @SuppressLint("ResourceAsColor")
+    @BindingAdapter("setPersonalForPost")
+    @JvmStatic
+    fun setPersonal(textView: TextView, post: Post) {
+        Log.e("asdf", "${((post.currentPersonal / post.personal.toFloat()) * 100).roundToInt()}")
+
+        when (((post.currentPersonal / post.personal.toFloat()) * 100).roundToInt()) {
+            in 0..33 -> textView.setTextColor(ContextCompat.getColor(textView.context,
+                R.color.color_safe))
+            in 34..66 -> textView.setTextColor(ContextCompat.getColor(textView.context,
+                R.color.color_caution))
+            in 67..99 -> textView.setTextColor(ContextCompat.getColor(textView.context,
+                R.color.color_danger))
+            else -> textView.setTextColor(ContextCompat.getColor(textView.context,
+                R.color.color_end))
         }
 
         textView.text = "${post.currentPersonal}/${post.personal}"
     }
 
-    @SuppressLint("ResourceAsColor")
-    @BindingAdapter("app:setPersonalForPost")
+    @BindingAdapter("setCategoryText")
     @JvmStatic
-    fun setPersonal(textView: TextView, post: Post){
-        when(((post.currentPersonal / post.personal.toFloat()) * 100).roundToInt()){
-            in 0..33 -> textView.setTextColor(R.color.color_safe)
-            in 34..66 -> textView.setTextColor(R.color.color_caution)
-            in 67..99 -> textView.setTextColor(R.color.color_danger)
-            else -> textView.setTextColor(R.color.color_end)
+    fun setCategoryText(textView: TextView, category: Int?) {
+        if (category != null) {
+            textView.text = categoryToString(category)
         }
-
-        textView.text = "${post.currentPersonal}/${post.personal}"
     }
 }

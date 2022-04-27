@@ -18,14 +18,20 @@ class HomeViewModel @Inject constructor(
     private val getStatePostUseCase: GetStatePostUseCase,
 ) : BaseViewModel() {
 
-    private val _onSuccessGetPost = MutableLiveData<List<Post>>()
-    val onSuccessGetPost: LiveData<List<Post>> get() = _onSuccessGetPost
+    private val _onSuccessGetAllPost = MutableLiveData<List<Post>>()
+    val onSuccessGetAllPost: LiveData<List<Post>> get() = _onSuccessGetAllPost
+
+    private val _onSuccessGetStatePost = MutableLiveData<List<Post>>()
+    val onSuccessGetStatePost: LiveData<List<Post>> get() = _onSuccessGetStatePost
+
+    private val _onSuccessGetCategoryPost = MutableLiveData<List<Post>>()
+    val onSuccessGetCategoryPost: LiveData<List<Post>> get() = _onSuccessGetCategoryPost
 
     fun getAllPost() {
         addDisposable(getAllPostUseCase.buildUseCaseObservable(),
             object : DisposableSingleObserver<List<Post>>() {
                 override fun onSuccess(t: List<Post>) {
-                    _onSuccessGetPost.value = t
+                    _onSuccessGetAllPost.value = t
                 }
 
                 override fun onError(e: Throwable) {
@@ -36,24 +42,24 @@ class HomeViewModel @Inject constructor(
     }
 
     fun getStatePost(state: Int) {
-        addDisposable(getCategoryPostUseCase.buildUseCaseObservable(GetCategoryPostUseCase.Params(
-            state)), object : DisposableSingleObserver<List<Post>>() {
-            override fun onSuccess(t: List<Post>) {
-                _onSuccessGetPost.value = t
-            }
+        addDisposable(getStatePostUseCase.buildUseCaseObservable(GetStatePostUseCase.Params(state)),
+            object : DisposableSingleObserver<List<Post>>() {
+                override fun onSuccess(t: List<Post>) {
+                    _onSuccessGetStatePost.value = t
+                }
 
-            override fun onError(e: Throwable) {
-                onErrorEvent.value = e
-            }
+                override fun onError(e: Throwable) {
+                    onErrorEvent.value = e
+                }
 
-        })
+            })
     }
 
     fun getCategoryPost(category: Int) {
         addDisposable(getCategoryPostUseCase.buildUseCaseObservable(GetCategoryPostUseCase.Params(
             category)), object : DisposableSingleObserver<List<Post>>() {
             override fun onSuccess(t: List<Post>) {
-                _onSuccessGetPost.value = t
+                _onSuccessGetCategoryPost.value = t
             }
 
             override fun onError(e: Throwable) {

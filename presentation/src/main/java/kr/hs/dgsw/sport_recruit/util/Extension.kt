@@ -22,11 +22,19 @@ fun Fragment.toast(context: Context, message: String) {
 
 
 fun AppCompatActivity.startActivity(activity: Class<*>) {
-    startActivity(Intent(this, activity::class.java))
+    startActivity(Intent(this, activity))
+}
+
+fun Context.startActivity(activity: Class<*>) {
+    startActivity(Intent(this, activity))
+}
+
+fun Context.startActivityIntent(intent: Intent) {
+    startActivity(intent)
 }
 
 fun AppCompatActivity.startActivityAndFinish(activity: Class<*>) {
-    startActivity(Intent(this, activity::class.java))
+    startActivity(Intent(this, activity))
     finish()
 }
 

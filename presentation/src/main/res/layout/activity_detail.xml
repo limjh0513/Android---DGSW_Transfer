@@ -42,6 +42,7 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/circleImageView"
+            setImage="@{post.writterImage}"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:layout_marginEnd="8dp"
@@ -73,8 +74,7 @@
             android:textSize="@dimen/dimen_detail_writer"
             app:layout_constraintBottom_toBottomOf="@+id/detail_tvName"
             app:layout_constraintEnd_toStartOf="@+id/detail_tvName"
-            app:layout_constraintTop_toTopOf="@+id/detail_tvName"
-            app:setImage="@{post.writterImage}" />
+            app:layout_constraintTop_toTopOf="@+id/detail_tvName" />
 
         <TextView
             android:id="@+id/detail_tvTitle"
@@ -96,7 +96,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/jalnan"
-            android:text="@{categoryChanger.categoryToString(post.category)}"
+            setCategoryText="@{post.category}"
             android:textColor="@color/color_main"
             android:textSize="@dimen/dimen_write_title"
             app:layout_constraintStart_toStartOf="parent"
@@ -121,7 +121,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:fontFamily="@font/jalnan"
-            android:text="@{post.title}"
+            android:text="@{post.place}"
             android:textColor="@color/color_place"
             android:textSize="@dimen/dimen_detail_sub"
             app:layout_constraintBottom_toBottomOf="@+id/detail_hintPlace"
@@ -145,6 +145,7 @@
             android:id="@+id/detail_tvDeadline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
             android:fontFamily="@font/jalnan"
             android:text="@{post.time.toString()}"
             android:textColor="@color/color_translator"
@@ -169,11 +170,11 @@
 
         <TextView
             android:id="@+id/detail_tvPerson"
+            setPersonalForDetail="@{post}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/jalnan"
             android:textSize="@dimen/dimen_detail_personnel"
-            app:setPersonalForDetail="@{post}"
             app:layout_constraintBottom_toBottomOf="@+id/detail_hintPerson"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/detail_hintPerson"

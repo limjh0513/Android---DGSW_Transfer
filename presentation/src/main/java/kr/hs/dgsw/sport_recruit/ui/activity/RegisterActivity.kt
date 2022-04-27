@@ -33,8 +33,11 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel
 
     fun onClickRegisterBtn() {
         with(mViewModel) {
+            testLog(
+                "${id.value} ${pw.value} ${name.value} ${name.value} ${profile.value} ${grade.value} ${room.value} ${number.value}")
+
             if (isNotNullOrEmpty(id.value) && isNotNullOrEmpty(pw.value) && isNotNullOrEmpty(name.value) && isNotNullOrEmpty(
-                    name.value) && isNotNullOrEmpty(profile.value) && isNotNullOrEmpty(grade.value) && isNotNullOrEmpty(
+                    name.value) && isNotNullOrEmpty(grade.value) && isNotNullOrEmpty(
                     room.value) && isNotNullOrEmpty(number.value)
             ) {
                 register()

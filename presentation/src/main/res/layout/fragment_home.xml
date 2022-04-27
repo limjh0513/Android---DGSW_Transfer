@@ -61,32 +61,32 @@
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="전체" />
+                android:text="@string/string_tag_all" />
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="긴급🚨" />
+                android:text="@string/string_tag_emergency" />
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="축구⚽" />
+                android:text="@string/string_tag_soccer" />
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="배드민턴" />
+                android:text="@string/string_tag_badminton" />
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="농구" />
+                android:text="@string/string_tag_basketball" />
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="기타" />
+                android:text="@string/string_tag_etc" />
         </com.google.android.material.tabs.TabLayout>
 
 

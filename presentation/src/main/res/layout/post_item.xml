@@ -11,6 +11,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -45,13 +46,13 @@
 
         <TextView
             android:id="@+id/item_personnel"
+            setPersonalForPost="@{item}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="12dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/jalnan"
             android:textColor="@color/color_safe"
-            app:setPersonalForPost="@{item}"
             android:textSize="@dimen/dimen_item_personnel"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -65,9 +66,9 @@
             android:layout_marginTop="12dp"
             android:fontFamily="@font/jalnan"
             android:gravity="right"
+            android:text="@{item.time.toString()}"
             android:textColor="@color/color_main"
             android:textSize="@dimen/dimen_item_time"
-            android:text="@{item.time.toString()}"
             app:layout_constraintEnd_toEndOf="@+id/item_personnel"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="2022/03/31\n11:25" />
@@ -82,5 +83,18 @@
             app:layout_constraintStart_toEndOf="@+id/item_title"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/abc" />
+
+        <TextView
+            android:id="@+id/item_writter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:text="@{item.writter}"
+            android:textColor="@color/color_userName"
+            android:textSize="@dimen/dimen_item_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_content" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

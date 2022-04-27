@@ -6,8 +6,8 @@
     <string name="user">내 정보</string>
 
     <string name="string_tag_all">전체</string>
-    <string name="string_tag_emergency">긴급🚨</string>
-    <string name="string_tag_soccer">축구⚽</string>
+    <string name="string_tag_emergency">긴급</string>
+    <string name="string_tag_soccer">축구</string>
     <string name="string_tag_badminton">배드민턴</string>
     <string name="string_tag_basketball">농구</string>
     <string name="string_tag_etc">기타</string>
@@ -42,5 +42,5 @@
     <string name="string_register_grade">학년</string>
     <string name="string_register_room">반</string>
     <string name="string_register_number">번호</string>
-    <string name="string_register_profile">프로필 이미지(URL)</string>
+    <string name="string_register_profile">[선택] 프로필 이미지(URL)</string>
 </resources>
