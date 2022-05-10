@@ -8,6 +8,10 @@
         <variable
             name="item"
             type="kr.hs.dgsw.domain.model.Post" />
+
+        <variable
+            name="time"
+            type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -44,8 +48,25 @@
             app:layout_constraintTop_toBottomOf="@+id/item_title"
             tools:text="오늘 수업 끝나고 축구 할 사람" />
 
+
+        <TextView
+            android:id="@+id/item_end"
+            endVisible="@{item.state}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/jalnan"
+            android:text="@string/string_end"
+            android:textColor="@color/color_main"
+            android:textSize="@dimen/dimen_item_title"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_content" />
+
         <TextView
             android:id="@+id/item_personnel"
+            personalVisible="@{item.state}"
             setPersonalForPost="@{item}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -64,17 +85,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
             android:fontFamily="@font/jalnan"
             android:gravity="right"
-            android:text="@{item.time.toString()}"
+            android:text="@{time}"
             android:textColor="@color/color_main"
             android:textSize="@dimen/dimen_item_time"
-            app:layout_constraintEnd_toEndOf="@+id/item_personnel"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="2022/03/31\n11:25" />
 
         <ImageView
             android:id="@+id/image_siren"
+            sirenVisible="@{item.state}"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginStart="8dp"

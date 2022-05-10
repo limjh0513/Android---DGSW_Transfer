@@ -2,6 +2,7 @@ package kr.hs.dgsw.sport_recruit.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -14,13 +15,10 @@ import kr.hs.dgsw.sport_recruit.databinding.PostItemBinding
 import kr.hs.dgsw.sport_recruit.ui.activity.DetailActivity
 import kr.hs.dgsw.sport_recruit.util.startActivityIntent
 
-class PostListAdapter: ListAdapter<Post, PostListAdapter.ViewHolder>(PostDiffUtil.diffUtil) {
-
-    lateinit var mBinding: PostItemBinding
-    lateinit var context: Context
+class PostListAdapter(var context: Context): ListAdapter<Post, PostListAdapter.ViewHolder>(PostDiffUtil.diffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        mBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.post_item, parent, false)
+        val mBinding = DataBindingUtil.inflate<PostItemBinding>(LayoutInflater.from(parent.context), R.layout.post_item, parent, false)
 
         return ViewHolder(mBinding)
     }
@@ -29,9 +27,10 @@ class PostListAdapter: ListAdapter<Post, PostListAdapter.ViewHolder>(PostDiffUti
         holder.bind(getItem(position))
     }
 
-    inner class ViewHolder(mBinding: PostItemBinding) : RecyclerView.ViewHolder(mBinding.root) {
+    inner class ViewHolder(private val mBinding: PostItemBinding) : RecyclerView.ViewHolder(mBinding.root) {
         fun bind(item: Post) {
             mBinding.item = item
+            mBinding.time = item.time.toString().substring(0, 16)
             mBinding.itemView.setOnClickListener {
                 val intent = Intent(context, DetailActivity::class.java)
                 intent.putExtra("postIdx", item.idx)

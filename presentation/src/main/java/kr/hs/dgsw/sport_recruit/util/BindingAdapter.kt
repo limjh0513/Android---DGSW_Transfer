@@ -2,8 +2,10 @@ package kr.hs.dgsw.sport_recruit.util
 
 import android.annotation.SuppressLint
 import android.util.Log
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import de.hdodenhof.circleimageview.CircleImageView
@@ -61,14 +63,19 @@ object BindingAdapter {
     fun setPersonal(textView: TextView, post: Post) {
         Log.e("asdf", "${((post.currentPersonal / post.personal.toFloat()) * 100).roundToInt()}")
 
-        when (((post.currentPersonal / post.personal.toFloat()) * 100).roundToInt()) {
-            in 0..33 -> textView.setTextColor(ContextCompat.getColor(textView.context,
-                R.color.color_safe))
-            in 34..66 -> textView.setTextColor(ContextCompat.getColor(textView.context,
-                R.color.color_caution))
-            in 67..99 -> textView.setTextColor(ContextCompat.getColor(textView.context,
-                R.color.color_danger))
-            else -> textView.setTextColor(ContextCompat.getColor(textView.context,
+        if (post.state < 2) {
+            when (((post.currentPersonal / post.personal.toFloat()) * 100).roundToInt()) {
+                in 0..33 -> textView.setTextColor(ContextCompat.getColor(textView.context,
+                    R.color.color_safe))
+                in 34..66 -> textView.setTextColor(ContextCompat.getColor(textView.context,
+                    R.color.color_caution))
+                in 67..99 -> textView.setTextColor(ContextCompat.getColor(textView.context,
+                    R.color.color_danger))
+                else -> textView.setTextColor(ContextCompat.getColor(textView.context,
+                    R.color.color_end))
+            }
+        } else {
+            textView.setTextColor(ContextCompat.getColor(textView.context,
                 R.color.color_end))
         }
 
@@ -81,5 +88,23 @@ object BindingAdapter {
         if (category != null) {
             textView.text = categoryToString(category)
         }
+    }
+
+    @BindingAdapter("sirenVisible")
+    @JvmStatic
+    fun setSirenVisible(imageView: ImageView, state: Int) {
+        imageView.isVisible = state == 1
+    }
+
+    @BindingAdapter("endVisible")
+    @JvmStatic
+    fun setEndVisible(textView: TextView, state: Int) {
+        textView.isVisible = state == 2
+    }
+
+    @BindingAdapter("personalVisible")
+    @JvmStatic
+    fun setpersonalVisible(textView: TextView, state: Int) {
+        textView.isVisible = state < 2
     }
 }

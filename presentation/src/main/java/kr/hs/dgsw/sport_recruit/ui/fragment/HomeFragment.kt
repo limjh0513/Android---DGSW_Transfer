@@ -17,9 +17,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     override val layoutRes: Int
         get() = R.layout.fragment_home
 
-    private val adapter: PostListAdapter = PostListAdapter()
+    lateinit var adapter: PostListAdapter
 
     override fun observerViewModel() {
+        adapter = PostListAdapter(requireActivity())
         setTabLayout()
         setRecyclerView()
         with(mViewModel) {
@@ -31,6 +32,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
             })
             onSuccessGetCategoryPost.observe(this@HomeFragment, Observer {
                 adapter.submitList(it.toMutableList())
+
             })
             onErrorEvent.observe(this@HomeFragment, Observer {
                 this@HomeFragment.toast(requireContext(), "오류 발생 ${it.message}")
@@ -39,7 +41,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     }
 
     private fun setRecyclerView() {
-        adapter.context = this.requireActivity()
         mBinding.homeRecycler.adapter = adapter
         mViewModel.getAllPost()
     }

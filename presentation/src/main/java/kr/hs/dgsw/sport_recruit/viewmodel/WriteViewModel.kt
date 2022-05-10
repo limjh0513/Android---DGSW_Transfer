@@ -7,6 +7,7 @@ import io.reactivex.rxjava3.observers.DisposableSingleObserver
 import kr.hs.dgsw.domain.request.WriteRequest
 import kr.hs.dgsw.domain.usecase.post.WritePostUseCase
 import kr.hs.dgsw.sport_recruit.base.BaseViewModel
+import java.sql.Timestamp
 import javax.inject.Inject
 
 @HiltViewModel
@@ -29,6 +30,8 @@ class WriteViewModel @Inject constructor(private val writePostUseCase: WritePost
         val isAnonymous = if (anonymous.value!!) 1 else 0
         val isHidden = if (hidden.value!!) 1 else 0
 
+        val t = Timestamp.valueOf(time.value.toString())
+
         addDisposable(writePostUseCase.buildUseCaseObservable(WritePostUseCase.Params(
             WriteRequest(
                 title.value.toString(),
@@ -36,7 +39,7 @@ class WriteViewModel @Inject constructor(private val writePostUseCase: WritePost
                 personnel.value!!.toInt(),
                 place.value.toString(),
                 0,
-                time.value.toString(),
+                t,
                 category, 0, isAnonymous, isHidden)
         )), object : DisposableSingleObserver<Boolean>() {
             override fun onSuccess(t: Boolean) {
