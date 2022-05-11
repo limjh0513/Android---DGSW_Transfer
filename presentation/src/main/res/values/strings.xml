@@ -30,7 +30,7 @@
     <string name="string_category">운동 종목(축구, 배드민턴, 농구, 기타)</string>
     <string name="string_where">운동 할 위치</string>
     <string name="string_number">같이 운동 할 인원 수</string>
-    <string name="string_time">운동 할 시각 (yyyy/mm/dd hh:mm)</string>
+    <string name="string_time">운동 할 시각 (yyyy-mm-dd hh:mm)</string>
     <string name="string_anonymous">익명</string>
     <string name="string_hidden">신청 리스트 숨김</string>
 
@@ -44,4 +44,7 @@
     <string name="string_register_room">반</string>
     <string name="string_register_number">번호</string>
     <string name="string_register_profile">[선택] 프로필 이미지(URL)</string>
+
+    <string name="string_myWrite">내가 쓴 글</string>
+    <string name="string_myApply">내 신청 목록</string>
 </resources>

@@ -1,9 +1,9 @@
 package kr.hs.dgsw.sport_recruit.ui.fragment
 
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import dagger.hilt.android.AndroidEntryPoint
+import kr.hs.dgsw.data.util.PreferenceManager
 import kr.hs.dgsw.sport_recruit.R
 import kr.hs.dgsw.sport_recruit.base.BaseFragment
 import kr.hs.dgsw.sport_recruit.databinding.FragmentWriteBinding
@@ -22,6 +22,8 @@ class WriteFragment : BaseFragment<FragmentWriteBinding, WriteViewModel>() {
         with(mViewModel) {
             onSuccessWritePost.observe(this@WriteFragment, Observer {
                 toast(requireContext(), "게시글 작성 성공!")
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(R.id.frameLayout, HomeFragment()).commit()
             })
             onErrorEvent.observe(this@WriteFragment, Observer {
                 toast(requireContext(), "게시글 작성 실패 - ${it.message}")
@@ -31,10 +33,20 @@ class WriteFragment : BaseFragment<FragmentWriteBinding, WriteViewModel>() {
 
     fun onClickWriteBtn() {
         with(mViewModel) {
-            if (isNotNullOrEmpty(title.value) && isNotNullOrEmpty(category.value) && isNotNullOrEmpty(
-                    place.value) && isNotNullOrEmpty(personnel.value) && isNotNullOrEmpty(time.value)
-            ) {
-                writePost(categoryToInt(category.value.toString()))
+            val userId = PreferenceManager.getUser(requireContext())
+
+            if (userId != null) {
+                if (isNotNullOrEmpty(title.value) && isNotNullOrEmpty(category.value) && isNotNullOrEmpty(
+                        place.value) && isNotNullOrEmpty(personnel.value) && isNotNullOrEmpty(time.value)
+                ) {
+                    try {
+                        writePost(categoryToInt(category.value.toString()), userId)
+                    } catch (e: Exception) {
+                        toast(requireContext(), "입력 양식에 맞게 입력해주세요!")
+                    }
+                }
+            } else {
+                toast(requireContext(), "회원을 조회하지 못했습니다. 다시 로그인해주세요.")
             }
         }
     }
