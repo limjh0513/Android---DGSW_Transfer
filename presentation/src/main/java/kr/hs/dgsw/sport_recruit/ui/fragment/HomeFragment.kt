@@ -20,7 +20,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     lateinit var adapter: PostListAdapter
 
     override fun observerViewModel() {
-        adapter = PostListAdapter(requireActivity())
         setTabLayout()
         setRecyclerView()
         with(mViewModel) {
@@ -41,6 +40,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     }
 
     private fun setRecyclerView() {
+        adapter = PostListAdapter(requireActivity())
         mBinding.homeRecycler.adapter = adapter
         mViewModel.getAllPost()
     }

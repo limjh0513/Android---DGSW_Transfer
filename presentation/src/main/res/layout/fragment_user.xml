@@ -25,15 +25,15 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_image"
+            setImage="@{user.profileImage}"
             android:layout_width="96dp"
             android:layout_height="96dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             app:civ_border_color="@color/color_image_boarder"
             app:civ_border_width="2dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            setImage="@{user.profileImage}"
             tools:src="@drawable/ic_humen" />
 
         <TextView
@@ -51,6 +51,7 @@
 
         <TextView
             android:id="@+id/user_tvNumber"
+            setGrade="@{user}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -59,8 +60,68 @@
             android:textSize="@dimen/dimen_my_studentId"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/user_tvName"
-            setGrade="@{user}" />
+            app:layout_constraintTop_toBottomOf="@+id/user_tvName" />
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_tvNumber">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/user_hintWrite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/jalnan"
+                    android:text="@string/string_myWrite"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dimen_my_write" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/user_recyclerWrite"
+                    android:layout_width="match_parent"
+                    android:layout_height="260dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/post_item" />
+
+                <TextView
+                    android:id="@+id/user_hintApply"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/jalnan"
+                    android:text="@string/string_myApply"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dimen_my_write" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/user_recyclerApply"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/apply_item" />
+            </LinearLayout>
+        </ScrollView>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

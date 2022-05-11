@@ -9,6 +9,7 @@ import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import de.hdodenhof.circleimageview.CircleImageView
+import kr.hs.dgsw.domain.model.Apply
 import kr.hs.dgsw.domain.model.DetailPost
 import kr.hs.dgsw.domain.model.Post
 import kr.hs.dgsw.domain.model.User
@@ -22,6 +23,14 @@ object BindingAdapter {
     fun setGradeTv(textView: TextView, user: User?) {
         if (user != null) {
             textView.text = "${user.grade}-${user.room}-${user.number}"
+        }
+    }
+
+    @BindingAdapter("setGradeName")
+    @JvmStatic
+    fun setGradeNameTv(textView: TextView, apply: Apply?){
+        if(apply != null){
+            textView.text = "${apply.grade}-${apply.room}-${apply.number} ${apply.name}"
         }
     }
 
@@ -39,9 +48,6 @@ object BindingAdapter {
     @JvmStatic
     fun setDetailPersonal(textView: TextView, post: DetailPost?) {
         if (post != null) {
-            Log.e("asdf",
-                "${((post.currentPersonal / post.personal.toFloat()) * 100).roundToInt()}")
-
             when (((post.currentPersonal / post.personal.toFloat()) * 100).roundToInt()) {
                 in 0..33 -> textView.setTextColor(ContextCompat.getColor(textView.context,
                     R.color.color_safe))
@@ -61,7 +67,6 @@ object BindingAdapter {
     @BindingAdapter("setPersonalForPost")
     @JvmStatic
     fun setPersonal(textView: TextView, post: Post) {
-        Log.e("asdf", "${((post.currentPersonal / post.personal.toFloat()) * 100).roundToInt()}")
 
         if (post.state < 2) {
             when (((post.currentPersonal / post.personal.toFloat()) * 100).roundToInt()) {
@@ -80,6 +85,20 @@ object BindingAdapter {
         }
 
         textView.text = "${post.currentPersonal}/${post.personal}"
+    }
+
+    @SuppressLint("ResourceAsColor")
+    @BindingAdapter("setApplyState")
+    @JvmStatic
+    fun setApplyState(textView: TextView, state: Int) {
+
+        if (state == 0) {
+            textView.setTextColor(ContextCompat.getColor(textView.context, R.color.color_safe))
+            textView.text = "확정"
+        } else {
+            textView.setTextColor(ContextCompat.getColor(textView.context, R.color.color_danger))
+            textView.text = "취소"
+        }
     }
 
     @BindingAdapter("setCategoryText")
