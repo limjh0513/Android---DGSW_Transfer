@@ -15,6 +15,10 @@ class ApplyRepositoryImpl @Inject constructor(private val dataSource: ApplyDataS
     override fun getMyApply(idx: Int): Single<List<Apply>> =
         dataSource.getMyApply(idx)
 
+    override fun getPostMyApply(postIdx: Int, userIdx: Int): Single<Int> =
+        dataSource.getPostMyApply(postIdx, userIdx)
+
+
     override fun postApply(request: ApplyRequest): Single<Boolean> =
         dataSource.postApply(request)
 }

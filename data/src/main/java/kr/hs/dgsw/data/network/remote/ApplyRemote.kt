@@ -16,6 +16,9 @@ class ApplyRemote @Inject constructor(override val service: ApplyService) :
     fun getMyApply(idx: Int): Single<List<ApplyResponse>> =
         service.getMyApply(idx).map(getResponseData())
 
+    fun getPostMyApply(postIdx: Int, userIdx: Int): Single<Int> =
+        service.getPostMyApply(postIdx, userIdx).map(getResponseData())
+
     fun postApply(request: ApplyRequest): Single<Boolean> =
         service.postApply(request).map(getResponseData())
 }

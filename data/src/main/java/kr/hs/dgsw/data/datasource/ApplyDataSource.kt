@@ -21,6 +21,9 @@ class ApplyDataSource @Inject constructor(override val remote: ApplyRemote) :
             applyList
         }
 
+    fun getPostMyApply(postIdx: Int, userIdx: Int): Single<Int> =
+        remote.getPostMyApply(postIdx, userIdx)
+
     fun getMyApply(idx: Int): Single<List<Apply>> =
         remote.getMyApply(idx).map { responses ->
             val applyList = ArrayList<Apply>()

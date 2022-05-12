@@ -17,6 +17,9 @@ interface ApplyService {
     @GET("apply/get/my/{userIdx}")
     fun getMyApply(@Path("userIdx") idx: Int): Single<Response<BaseResponse<List<ApplyResponse>>>>
 
+    @GET("apply/get/{postIdx}/{userIdx}")
+    fun getPostMyApply(@Path("postIdx") postIdx:Int, @Path("userIdx") userIdx:Int):Single<Response<BaseResponse<Int>>>
+
     @POST("apply/post")
     fun postApply(@Body request: ApplyRequest): Single<Response<BaseResponse<Boolean>>>
 }

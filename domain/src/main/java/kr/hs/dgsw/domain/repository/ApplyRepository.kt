@@ -7,5 +7,6 @@ import kr.hs.dgsw.domain.request.ApplyRequest
 interface ApplyRepository {
     fun getApply(idx: Int): Single<List<Apply>>
     fun getMyApply(idx: Int): Single<List<Apply>>
+    fun getPostMyApply(postIdx: Int, userIdx: Int): Single<Int>
     fun postApply(request: ApplyRequest): Single<Boolean>
 }
