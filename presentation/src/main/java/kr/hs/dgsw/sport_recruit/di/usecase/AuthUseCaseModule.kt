@@ -6,6 +6,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import kr.hs.dgsw.domain.repository.AuthRepository
 import kr.hs.dgsw.domain.usecase.auth.LoginUseCase
+import kr.hs.dgsw.domain.usecase.auth.RegisterUseCase
 import javax.inject.Singleton
 
 @Module
@@ -15,4 +16,9 @@ class AuthUseCaseModule {
     @Provides
     fun provideLoginUseCase(repository: AuthRepository): LoginUseCase =
         LoginUseCase(repository)
+
+    @Singleton
+    @Provides
+    fun provideRegisterUseCase(repository: AuthRepository): RegisterUseCase =
+        RegisterUseCase(repository)
 }
