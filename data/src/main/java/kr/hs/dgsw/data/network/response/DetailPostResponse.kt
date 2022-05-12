@@ -10,9 +10,10 @@ data class DetailPostResponse(
     val currentPersonal: Int,
     val place: String,
     val writter: String,
+    val userIdx: Int,
     val writterImage: String,
     val time: Timestamp,
     val state: Int,
     val category: Int,
-    val hidden: Int
+    val hidden: Int,
 )

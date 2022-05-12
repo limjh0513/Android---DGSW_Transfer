@@ -12,6 +12,7 @@ data class DetailPost(
     val currentPersonal: Int,
     val place: String,
     val writter: String,
+    val userIdx: Int,
     val writterImage: String,
     val time: Timestamp,
     val state: Int,

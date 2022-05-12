@@ -99,7 +99,7 @@ object BindingAdapter {
 
         if (state == 0) {
             textView.setTextColor(ContextCompat.getColor(textView.context, R.color.color_safe))
-            textView.text = "확정"
+            textView.text = "신청 완료"
         } else {
             textView.setTextColor(ContextCompat.getColor(textView.context, R.color.color_danger))
             textView.text = "취소"
