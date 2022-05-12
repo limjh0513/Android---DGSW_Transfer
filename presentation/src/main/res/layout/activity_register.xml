@@ -32,133 +32,132 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_backarrow" />
 
-        <EditText
-            android:id="@+id/registerEt_id"
+
+        <ScrollView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="@font/jalnan"
-            android:hint="@string/string_register_id"
-            android:inputType="text"
-            android:minHeight="48dp"
-            android:text="@={vm.id}"
-            android:textColorHint="@color/color_hint"
-            android:textSize="@dimen/dimen_register"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/register_btn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/register_backBtn" />
+            app:layout_constraintTop_toBottomOf="@+id/register_backBtn">
 
-        <EditText
-            android:id="@+id/registerEt_pw"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="@font/jalnan"
-            android:hint="@string/string_register_pw"
-            android:inputType="textPassword"
-            android:minHeight="48dp"
-            android:text="@={vm.pw}"
-            android:textColorHint="@color/color_hint"
-            android:textSize="@dimen/dimen_register"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/registerEt_id"
-            app:passwordToggleTint="#FFF" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/registerEt_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="@font/jalnan"
-            android:hint="@string/string_register_name"
-            android:inputType="textPersonName"
-            android:minHeight="48dp"
-            android:text="@={vm.name}"
-            android:textColorHint="@color/color_hint"
-            android:textSize="@dimen/dimen_register"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/registerEt_pw" />
+                <EditText
+                    android:id="@+id/registerEt_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/jalnan"
+                    android:hint="@string/string_register_id"
+                    android:inputType="text"
+                    android:minHeight="48dp"
+                    android:text="@={vm.id}"
+                    android:textColorHint="@color/color_hint"
+                    android:textSize="@dimen/dimen_register" />
 
-        <EditText
-            android:id="@+id/registerEt_profile"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="@font/jalnan"
-            android:hint="@string/string_register_profile"
-            android:inputType="textUri"
-            android:minHeight="48dp"
-            android:text="@={vm.profile}"
-            android:textColorHint="@color/color_hint"
-            android:textSize="@dimen/dimen_register"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/registerEt_name" />
+                <EditText
+                    android:id="@+id/registerEt_pw"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/jalnan"
+                    android:hint="@string/string_register_pw"
+                    android:inputType="textPassword"
+                    android:minHeight="48dp"
+                    android:text="@={vm.pw}"
+                    android:textColorHint="@color/color_hint"
+                    android:textSize="@dimen/dimen_register"
+                    app:passwordToggleTint="#FFF" />
+
+                <EditText
+                    android:id="@+id/registerEt_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/jalnan"
+                    android:hint="@string/string_register_name"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp"
+                    android:text="@={vm.name}"
+                    android:textColorHint="@color/color_hint"
+                    android:textSize="@dimen/dimen_register" />
+
+                <EditText
+                    android:id="@+id/registerEt_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/jalnan"
+                    android:hint="@string/string_register_profile"
+                    android:inputType="textUri"
+                    android:minHeight="48dp"
+                    android:text="@={vm.profile}"
+                    android:textColorHint="@color/color_hint"
+                    android:textSize="@dimen/dimen_register" />
 
 
-        <EditText
-            android:id="@+id/registerEt_grade"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="@font/jalnan"
-            android:hint="@string/string_register_grade"
-            android:inputType="number"
-            android:minHeight="48dp"
-            android:text="@={vm.grade}"
-            android:textColorHint="@color/color_hint"
-            android:textSize="@dimen/dimen_register"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/registerEt_profile" />
+                <EditText
+                    android:id="@+id/registerEt_grade"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/jalnan"
+                    android:hint="@string/string_register_grade"
+                    android:inputType="number"
+                    android:minHeight="48dp"
+                    android:text="@={vm.grade}"
+                    android:textColorHint="@color/color_hint"
+                    android:textSize="@dimen/dimen_register" />
 
-        <EditText
-            android:id="@+id/registerEt_room"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="@font/jalnan"
-            android:hint="@string/string_register_room"
-            android:inputType="number"
-            android:minHeight="48dp"
-            android:text="@={vm.room}"
-            android:textColorHint="@color/color_hint"
-            android:textSize="@dimen/dimen_register"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/registerEt_grade" />
+                <EditText
+                    android:id="@+id/registerEt_room"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/jalnan"
+                    android:hint="@string/string_register_room"
+                    android:inputType="number"
+                    android:minHeight="48dp"
+                    android:text="@={vm.room}"
+                    android:textColorHint="@color/color_hint"
+                    android:textSize="@dimen/dimen_register" />
 
-        <EditText
-            android:id="@+id/registerEt_number"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="@font/jalnan"
-            android:hint="@string/string_register_number"
-            android:inputType="number"
-            android:minHeight="48dp"
-            android:text="@={vm.number}"
-            android:textColorHint="@color/color_hint"
-            android:textSize="@dimen/dimen_register"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/registerEt_room" />
+                <EditText
+                    android:id="@+id/registerEt_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/jalnan"
+                    android:hint="@string/string_register_number"
+                    android:inputType="number"
+                    android:minHeight="48dp"
+                    android:text="@={vm.number}"
+                    android:textColorHint="@color/color_hint"
+                    android:textSize="@dimen/dimen_register" />
+
+            </LinearLayout>
+        </ScrollView>
+
 
         <Button
             android:id="@+id/register_btn"
@@ -177,6 +176,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

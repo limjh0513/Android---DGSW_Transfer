@@ -1,7 +1,6 @@
 package kr.hs.dgsw.sport_recruit.util
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
@@ -28,8 +27,8 @@ object BindingAdapter {
 
     @BindingAdapter("setGradeName")
     @JvmStatic
-    fun setGradeNameTv(textView: TextView, apply: Apply?){
-        if(apply != null){
+    fun setGradeNameTv(textView: TextView, apply: Apply?) {
+        if (apply != null) {
             textView.text = "${apply.grade}-${apply.room}-${apply.number} ${apply.name}"
         }
     }
@@ -48,18 +47,24 @@ object BindingAdapter {
     @JvmStatic
     fun setDetailPersonal(textView: TextView, post: DetailPost?) {
         if (post != null) {
-            when (((post.currentPersonal / post.personal.toFloat()) * 100).roundToInt()) {
-                in 0..33 -> textView.setTextColor(ContextCompat.getColor(textView.context,
-                    R.color.color_safe))
-                in 34..66 -> textView.setTextColor(ContextCompat.getColor(textView.context,
-                    R.color.color_caution))
-                in 67..99 -> textView.setTextColor(ContextCompat.getColor(textView.context,
-                    R.color.color_danger))
-                else -> textView.setTextColor(ContextCompat.getColor(textView.context,
-                    R.color.color_end))
-            }
+            if (post.state != 2) {
+                when (((post.currentPersonal / post.personal.toFloat()) * 100).roundToInt()) {
+                    in 0..33 -> textView.setTextColor(ContextCompat.getColor(textView.context,
+                        R.color.color_safe))
+                    in 34..66 -> textView.setTextColor(ContextCompat.getColor(textView.context,
+                        R.color.color_caution))
+                    in 67..99 -> textView.setTextColor(ContextCompat.getColor(textView.context,
+                        R.color.color_danger))
+                    else -> textView.setTextColor(ContextCompat.getColor(textView.context,
+                        R.color.color_end))
+                }
 
-            textView.text = "${post.currentPersonal}/${post.personal}"
+                textView.text = "${post.currentPersonal}/${post.personal}"
+            } else {
+                textView.setTextColor(ContextCompat.getColor(textView.context,
+                    R.color.color_end))
+                textView.text = "-종료-"
+            }
         }
     }
 
