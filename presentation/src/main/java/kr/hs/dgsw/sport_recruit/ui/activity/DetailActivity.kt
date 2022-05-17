@@ -1,5 +1,6 @@
 package kr.hs.dgsw.sport_recruit.ui.activity
 
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
@@ -9,6 +10,7 @@ import kr.hs.dgsw.sport_recruit.R
 import kr.hs.dgsw.sport_recruit.adapter.ApplyListAdapter
 import kr.hs.dgsw.sport_recruit.base.BaseActivity
 import kr.hs.dgsw.sport_recruit.databinding.ActivityDetailBinding
+import kr.hs.dgsw.sport_recruit.util.testLog
 import kr.hs.dgsw.sport_recruit.util.toast
 import kr.hs.dgsw.sport_recruit.viewmodel.DetailViewModel
 
@@ -33,6 +35,9 @@ class DetailActivity : BaseActivity<ActivityDetailBinding, DetailViewModel>() {
                 hidden = it.hidden
                 if (it.userIdx == userIdx) {
                     applyState = 2
+                    mBinding.applyState = applyState!!
+                } else {
+                    mViewModel.getMyApply(idx, userIdx)
                 }
 
                 mBinding.detailRecyclerView.isVisible = hidden != 1
@@ -49,11 +54,12 @@ class DetailActivity : BaseActivity<ActivityDetailBinding, DetailViewModel>() {
             onSuccessGetMyApply.observe(this@DetailActivity, Observer {
                 applyIdx = it.idx
                 applyState = applyState ?: it.state
+                Log.d("dasfs", applyState!!.toString())
                 mBinding.applyState = applyState!!
+                Log.d("dasfs", applyState!!.toString())
             })
 
             onSuccessGetUser.observe(this@DetailActivity, Observer {
-                var apply: Int = -1
                 when (applyState) {
                     -1 -> { //참가 신청
                         mViewModel.postApply(idx, userIdx, it)
@@ -65,7 +71,7 @@ class DetailActivity : BaseActivity<ActivityDetailBinding, DetailViewModel>() {
                         mViewModel.putApply(applyIdx!!, 0)
                     }
                     2 -> { //조기 마감
-                        
+
                     }
                 }
             })
@@ -73,6 +79,10 @@ class DetailActivity : BaseActivity<ActivityDetailBinding, DetailViewModel>() {
             onSuccessPostApply.observe(this@DetailActivity, Observer {
                 if (it) {
                     toast("스포츠 신청 성공!")
+                    applyState = 0
+                    mBinding.applyState = applyState!!
+                    getPostApply(idx)
+                    getDetailPost(idx)
                 } else {
                     toast("스포츠 신청 실패... 다시 시도해주세요")
                 }
@@ -83,8 +93,10 @@ class DetailActivity : BaseActivity<ActivityDetailBinding, DetailViewModel>() {
                     applyState = it
                 }
 
-                mBinding.applyState = it
+                mBinding.applyState = applyState!!
                 toast("신청 상태 수정 완료!")
+                getPostApply(idx)
+                getDetailPost(idx)
             })
 
             onErrorEvent.observe(this@DetailActivity, Observer {
@@ -116,7 +128,6 @@ class DetailActivity : BaseActivity<ActivityDetailBinding, DetailViewModel>() {
 
         if (idx > -1 && userIdx != -1) {
             mViewModel.getDetailPost(idx)
-            mViewModel.getMyApply(idx, userIdx)
         } else {
             toast("게시글 idx 혹은 유저 정보를 전달받지 못했습니다.")
         }

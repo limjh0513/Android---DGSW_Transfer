@@ -1,6 +1,7 @@
 package kr.hs.dgsw.sport_recruit.util
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -103,7 +104,7 @@ object BindingAdapter {
             textView.text = "신청 완료"
         } else {
             textView.setTextColor(ContextCompat.getColor(textView.context, R.color.color_danger))
-            textView.text = "취소"
+            textView.text = "신청 취소"
         }
     }
 
@@ -111,7 +112,7 @@ object BindingAdapter {
     @JvmStatic
     fun setCategoryText(textView: TextView, category: Int?) {
         if (category != null) {
-            textView.text = categoryToString(category)
+            textView.text = "종목 - ${categoryToString(category)}"
         }
     }
 
@@ -136,6 +137,7 @@ object BindingAdapter {
     @BindingAdapter("setApplyBtn")
     @JvmStatic
     fun setApplyBtn(button: Button, applyState: Int) {
+        Log.d("asfasdf","${applyState}")
         when (applyState) {
             -1 -> { // 신청 X
                 button.background = ContextCompat.getDrawable(button.context,

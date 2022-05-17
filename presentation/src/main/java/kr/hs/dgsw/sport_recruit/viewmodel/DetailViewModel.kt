@@ -77,8 +77,7 @@ class DetailViewModel @Inject constructor(
 
     fun getMyApply(postIdx: Int, userIdx: Int) {
         addDisposable(getPostMyApplyUseCase.buildUseCaseObservable(GetPostMyApplyUseCase.Params(
-            postIdx,
-            userIdx)), object : DisposableSingleObserver<MyApply>() {
+            postIdx, userIdx)), object : DisposableSingleObserver<MyApply>() {
             override fun onSuccess(t: MyApply) {
                 _onSuccessGetMyApply.value = t
             }

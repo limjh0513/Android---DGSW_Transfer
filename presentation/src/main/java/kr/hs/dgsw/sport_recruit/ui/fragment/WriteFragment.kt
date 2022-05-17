@@ -35,7 +35,7 @@ class WriteFragment : BaseFragment<FragmentWriteBinding, WriteViewModel>() {
         with(mViewModel) {
             val userId = PreferenceManager.getUser(requireContext())
 
-            if (userId != null) {
+            if (userId != -1) {
                 if (isNotNullOrEmpty(title.value) && isNotNullOrEmpty(category.value) && isNotNullOrEmpty(
                         place.value) && isNotNullOrEmpty(personnel.value) && isNotNullOrEmpty(time.value)
                 ) {
