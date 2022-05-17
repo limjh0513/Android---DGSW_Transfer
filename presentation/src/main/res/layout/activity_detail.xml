@@ -20,6 +20,10 @@
         <variable
             name="post"
             type="kr.hs.dgsw.domain.model.DetailPost" />
+
+        <variable
+            name="applyState"
+            type="int" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -233,6 +237,7 @@
 
                     <Button
                         android:id="@+id/detail_applyBtn"
+                        setApplyBtn="@{post.state}"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -240,6 +245,7 @@
                         android:layout_marginBottom="16dp"
                         android:background="@drawable/background_button_completion"
                         android:fontFamily="@font/jalnan"
+                        android:onClick="@{() -> activity.applyBtnClick()}"
                         android:padding="14dp"
                         android:text="@string/string_apply"
                         android:textColor="@color/white"

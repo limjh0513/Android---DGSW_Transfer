@@ -13,6 +13,7 @@
     <string name="string_tag_etc">기타</string>
 
     <string name="string_apply">참가 신청</string>
+    <string name="string_apply_cancel">참가 취소</string>
     <string name="string_closing">조기 마감</string>
     <string name="string_cancel">취소</string>
     <string name="string_await">대기</string>

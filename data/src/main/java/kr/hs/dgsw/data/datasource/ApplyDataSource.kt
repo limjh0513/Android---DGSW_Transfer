@@ -5,6 +5,7 @@ import kr.hs.dgsw.data.base.BaseDataSource
 import kr.hs.dgsw.data.mapper.toEntity
 import kr.hs.dgsw.data.network.remote.ApplyRemote
 import kr.hs.dgsw.domain.model.Apply
+import kr.hs.dgsw.domain.model.MyApply
 import kr.hs.dgsw.domain.request.ApplyRequest
 import javax.inject.Inject
 
@@ -21,8 +22,8 @@ class ApplyDataSource @Inject constructor(override val remote: ApplyRemote) :
             applyList
         }
 
-    fun getPostMyApply(postIdx: Int, userIdx: Int): Single<Int> =
-        remote.getPostMyApply(postIdx, userIdx)
+    fun getPostMyApply(postIdx: Int, userIdx: Int): Single<MyApply> =
+        remote.getPostMyApply(postIdx, userIdx).map { it.toEntity() }
 
     fun getMyApply(idx: Int): Single<List<Apply>> =
         remote.getMyApply(idx).map { responses ->
@@ -37,4 +38,7 @@ class ApplyDataSource @Inject constructor(override val remote: ApplyRemote) :
 
     fun postApply(request: ApplyRequest): Single<Boolean> =
         remote.postApply(request)
+
+    fun putApply(applyIdx: Int, state: Int): Single<Int> =
+        remote.putApply(applyIdx, state)
 }

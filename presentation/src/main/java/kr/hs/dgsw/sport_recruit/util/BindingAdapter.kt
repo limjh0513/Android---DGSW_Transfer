@@ -1,6 +1,7 @@
 package kr.hs.dgsw.sport_recruit.util
 
 import android.annotation.SuppressLint
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
@@ -130,5 +131,32 @@ object BindingAdapter {
     @JvmStatic
     fun setpersonalVisible(textView: TextView, state: Int) {
         textView.isVisible = state < 2
+    }
+
+    @BindingAdapter("setApplyBtn")
+    @JvmStatic
+    fun setApplyBtn(button: Button, applyState: Int) {
+        when (applyState) {
+            -1 -> { // 신청 X
+                button.background = ContextCompat.getDrawable(button.context,
+                    R.drawable.background_button_completion)
+                button.text = "참가 신청"
+            }
+            0 -> { // 신청 완료
+                button.background =
+                    ContextCompat.getDrawable(button.context, R.drawable.background_button_cancel)
+                button.text = "참가 취소"
+            }
+            1 -> { // 신청 취소
+                button.background = ContextCompat.getDrawable(button.context,
+                    R.drawable.background_button_completion)
+                button.text = "참가 신청"
+            }
+            2 -> { //내가 작성한 게시글
+                button.background =
+                    ContextCompat.getDrawable(button.context, R.drawable.background_button_closing)
+                button.text = "조기 마감"
+            }
+        }
     }
 }
