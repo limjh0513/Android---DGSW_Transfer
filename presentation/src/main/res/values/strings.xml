@@ -38,12 +38,12 @@
     <string name="string_login">로그인</string>
     <string name="string_register">회원가입</string>
 
-    <string name="string_register_id">아이디</string>
-    <string name="string_register_pw">비밀번호</string>
-    <string name="string_register_name">이름</string>
-    <string name="string_register_grade">학년</string>
-    <string name="string_register_room">반</string>
-    <string name="string_register_number">번호</string>
+    <string name="string_register_id">아이디 (4자 이상)</string>
+    <string name="string_register_pw">비밀번호 (4자 이상)</string>
+    <string name="string_register_name">이름 (2자 이상)</string>
+    <string name="string_register_grade">학년 (1 ~ 3)</string>
+    <string name="string_register_room">반 (1 ~ 4)</string>
+    <string name="string_register_number">번호 (1 ~ 20)</string>
     <string name="string_register_profile">[선택] 프로필 이미지(URL)</string>
 
     <string name="string_myWrite">내가 쓴 글</string>

@@ -49,7 +49,7 @@ object BindingAdapter {
     @JvmStatic
     fun setDetailPersonal(textView: TextView, post: DetailPost?) {
         if (post != null) {
-            if (post.state != 2) {
+            if (post.state < 2) {
                 when (((post.currentPersonal / post.personal.toFloat()) * 100).roundToInt()) {
                     in 0..33 -> textView.setTextColor(ContextCompat.getColor(textView.context,
                         R.color.color_safe))

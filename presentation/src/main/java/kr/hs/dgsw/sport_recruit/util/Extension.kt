@@ -42,6 +42,15 @@ fun AppCompatActivity.isNotNullOrEmpty(str: String?): Boolean {
     return !str.isNullOrEmpty()
 }
 
+fun String.lengthCheck(n: Int): Boolean {
+    return !this.isNullOrEmpty() && this.length >= n
+}
+
+fun String.integerNotOver(n: Int): Boolean {
+    val parseNum = Integer.parseInt(this)
+    return this != null && 0 < parseNum && parseNum <= n
+}
+
 fun Fragment.isNotNullOrEmpty(str: String?): Boolean {
     return !str.isNullOrEmpty()
 }
