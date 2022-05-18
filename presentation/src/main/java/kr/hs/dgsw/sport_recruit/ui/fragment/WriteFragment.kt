@@ -11,6 +11,7 @@ import kr.hs.dgsw.sport_recruit.util.categoryToInt
 import kr.hs.dgsw.sport_recruit.util.isNotNullOrEmpty
 import kr.hs.dgsw.sport_recruit.util.toast
 import kr.hs.dgsw.sport_recruit.viewmodel.WriteViewModel
+import java.util.regex.Pattern
 
 @AndroidEntryPoint
 class WriteFragment : BaseFragment<FragmentWriteBinding, WriteViewModel>() {
@@ -37,17 +38,26 @@ class WriteFragment : BaseFragment<FragmentWriteBinding, WriteViewModel>() {
 
             if (userId != -1) {
                 if (isNotNullOrEmpty(title.value) && isNotNullOrEmpty(category.value) && isNotNullOrEmpty(
-                        place.value) && isNotNullOrEmpty(personnel.value) && isNotNullOrEmpty(time.value)
+                        place.value) && isNotNullOrEmpty(personnel.value) && dateTimeCheck(time.value)
                 ) {
-                    try {
-                        writePost(categoryToInt(category.value.toString()), userId)
-                    } catch (e: Exception) {
-                        toast(requireContext(), "입력 양식에 맞게 입력해주세요!")
-                    }
+                    writePost(categoryToInt(category.value.toString()), userId)
+                } else {
+                    toast(requireContext(), "입력 양식에 맞게 모두 입력해주세요!")
                 }
             } else {
                 toast(requireContext(), "회원을 조회하지 못했습니다. 다시 로그인해주세요.")
             }
         }
+    }
+
+    private fun dateTimeCheck(time: String?): Boolean {
+        if(time != null){
+            val pattern =
+                "\\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01]) (0[1-9]|1[0-9]|2[0-4]):(0[1-9]|[1-5][0-9])"
+
+            return Pattern.matches(pattern, time)
+        }
+
+        return false
     }
 }
