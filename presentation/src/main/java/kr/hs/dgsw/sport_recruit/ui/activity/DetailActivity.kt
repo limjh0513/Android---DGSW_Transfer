@@ -71,7 +71,7 @@ class DetailActivity : BaseActivity<ActivityDetailBinding, DetailViewModel>() {
                         mViewModel.putApply(applyIdx!!, 0)
                     }
                     2 -> { //조기 마감
-
+                        mViewModel.putPostEnded(idx)
                     }
                 }
             })
@@ -96,6 +96,12 @@ class DetailActivity : BaseActivity<ActivityDetailBinding, DetailViewModel>() {
                 mBinding.applyState = applyState!!
                 toast("신청 상태 수정 완료!")
                 getPostApply(idx)
+                getDetailPost(idx)
+            })
+
+            onSuccessPutPostEnded.observe(this@DetailActivity, Observer {
+                mBinding.detailApplyBtn.isVisible = !it
+                toast("게시글 조기 종료 성공!")
                 getDetailPost(idx)
             })
 

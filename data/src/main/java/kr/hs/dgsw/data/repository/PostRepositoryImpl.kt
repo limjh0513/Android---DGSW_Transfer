@@ -26,4 +26,7 @@ class PostRepositoryImpl @Inject constructor(private val dataSource: PostDataSou
 
     override fun getMyPost(userIdx: Int): Single<List<Post>> =
         dataSource.getMyPost(userIdx)
+
+    override fun putPostEnded(postIdx: Int): Single<Boolean> =
+        dataSource.putPostEnded(postIdx)
 }

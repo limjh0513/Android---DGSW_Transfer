@@ -18,6 +18,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         get() = R.layout.fragment_home
 
     lateinit var adapter: PostListAdapter
+    var currentPosition = 0
 
     override fun observerViewModel() {
         setTabLayout()
@@ -39,23 +40,21 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        getItemList(currentPosition)
+    }
+
     private fun setRecyclerView() {
         adapter = PostListAdapter(requireActivity())
         mBinding.homeRecycler.adapter = adapter
-        mViewModel.getAllPost()
     }
 
     private fun setTabLayout() {
         mBinding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                when (tab!!.position) {
-                    0 -> mViewModel.getAllPost()
-                    1 -> mViewModel.getStatePost(1)
-                    2 -> mViewModel.getCategoryPost(0)
-                    3 -> mViewModel.getCategoryPost(1)
-                    4 -> mViewModel.getCategoryPost(2)
-                    5 -> mViewModel.getCategoryPost(3)
-                }
+                getItemList(tab!!.position)
+                currentPosition = tab.position
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
@@ -65,6 +64,17 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
             }
 
         })
+    }
+
+    private fun getItemList(position: Int){
+        when (position) {
+            0 -> mViewModel.getAllPost()
+            1 -> mViewModel.getStatePost(1)
+            2 -> mViewModel.getCategoryPost(0)
+            3 -> mViewModel.getCategoryPost(1)
+            4 -> mViewModel.getCategoryPost(2)
+            5 -> mViewModel.getCategoryPost(3)
+        }
     }
 
 }

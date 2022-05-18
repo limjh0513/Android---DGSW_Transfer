@@ -61,4 +61,7 @@ class PostDataSource @Inject constructor(override val remote: PostRemote) :
             postList
 
         }
+
+    fun putPostEnded(postIdx: Int): Single<Boolean> =
+        remote.putPostEnded(postIdx)
 }

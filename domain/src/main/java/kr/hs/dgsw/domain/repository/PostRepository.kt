@@ -12,4 +12,5 @@ interface PostRepository {
     fun getStatePost(state: Int): Single<List<Post>>
     fun getDetailPost(postIdx: Int): Single<DetailPost>
     fun getMyPost(userIdx: Int): Single<List<Post>>
+    fun putPostEnded(postIdx: Int): Single<Boolean>
 }

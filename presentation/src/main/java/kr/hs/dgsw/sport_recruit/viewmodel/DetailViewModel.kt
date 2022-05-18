@@ -14,6 +14,7 @@ import kr.hs.dgsw.domain.usecase.apply.GetPostMyApplyUseCase
 import kr.hs.dgsw.domain.usecase.apply.PostApplyUseCase
 import kr.hs.dgsw.domain.usecase.apply.PutApplyUseCase
 import kr.hs.dgsw.domain.usecase.post.GetDetailPostUseCase
+import kr.hs.dgsw.domain.usecase.post.PutPostEndedUseCase
 import kr.hs.dgsw.domain.usecase.user.InquireUserUseCase
 import kr.hs.dgsw.sport_recruit.base.BaseViewModel
 import kr.hs.dgsw.sport_recruit.util.testLog
@@ -27,6 +28,7 @@ class DetailViewModel @Inject constructor(
     private val postApplyUseCase: PostApplyUseCase,
     private val getUserUseCase: InquireUserUseCase,
     private val putApplyUseCase: PutApplyUseCase,
+    private val putPostEndedUseCase: PutPostEndedUseCase,
 ) : BaseViewModel() {
     private val _onSuccessGetDetail = MutableLiveData<DetailPost>()
     val onSuccessGetDetail: LiveData<DetailPost> get() = _onSuccessGetDetail
@@ -45,6 +47,9 @@ class DetailViewModel @Inject constructor(
 
     private val _onSuccessPutApply = MutableLiveData<Int>()
     val onSuccessPutApply: LiveData<Int> get() = _onSuccessPutApply
+
+    private val _onSuccessPutPostEnded = MutableLiveData<Boolean>()
+    val onSuccessPutPostEnded: LiveData<Boolean> get() = _onSuccessPutPostEnded
 
     fun getDetailPost(postIdx: Int) {
         addDisposable(getDetailPostUseCase.buildUseCaseObservable(GetDetailPostUseCase.Params(
@@ -122,9 +127,22 @@ class DetailViewModel @Inject constructor(
 
     fun putApply(applyIdx: Int, state: Int) {
         addDisposable(putApplyUseCase.buildUseCaseObservable(PutApplyUseCase.Params(applyIdx,
-            state)), object: DisposableSingleObserver<Int>(){
+            state)), object : DisposableSingleObserver<Int>() {
             override fun onSuccess(t: Int) {
                 _onSuccessPutApply.value = t
+            }
+
+            override fun onError(e: Throwable) {
+                onErrorEvent.value = e
+            }
+
+        })
+    }
+
+    fun putPostEnded(postIdx: Int){
+        addDisposable(putPostEndedUseCase.buildUseCaseObservable(PutPostEndedUseCase.Params(postIdx)), object: DisposableSingleObserver<Boolean>(){
+            override fun onSuccess(t: Boolean) {
+                _onSuccessPutPostEnded.value = t
             }
 
             override fun onError(e: Throwable) {

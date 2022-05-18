@@ -10,7 +10,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class PostUseCase {
+class PostUseCaseModule {
 
     @Singleton
     @Provides
@@ -41,4 +41,9 @@ class PostUseCase {
     @Provides
     fun provideWritePostUseCase(repository: PostRepository): WritePostUseCase =
         WritePostUseCase(repository)
+
+    @Singleton
+    @Provides
+    fun providePutPostEndedUseCase(repository: PostRepository): PutPostEndedUseCase =
+        PutPostEndedUseCase(repository)
 }

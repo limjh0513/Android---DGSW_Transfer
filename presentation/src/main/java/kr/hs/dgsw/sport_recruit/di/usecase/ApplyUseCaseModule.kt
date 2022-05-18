@@ -11,7 +11,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class ApplyUseCase {
+class ApplyUseCaseModule {
     @Singleton
     @Provides
     fun provideGetApplyUseCase(repository: ApplyRepository) : GetApplyUseCase =

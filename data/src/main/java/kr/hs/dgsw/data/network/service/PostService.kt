@@ -6,10 +6,7 @@ import kr.hs.dgsw.data.network.response.BaseResponse
 import kr.hs.dgsw.data.network.response.DetailPostResponse
 import kr.hs.dgsw.domain.request.WriteRequest
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface PostService {
     @POST("post/write")
@@ -29,4 +26,7 @@ interface PostService {
 
     @GET("post/my/{userIdx}")
     fun getMyPost(@Path("userIdx") userIdx: Int): Single<Response<BaseResponse<List<AllPostResponse>>>>
+
+    @PUT("post/end/{postIdx}")
+    fun putPostEnd(@Path("postIdx") postIdx: Int): Single<Response<BaseResponse<Boolean>>>
 }

@@ -27,4 +27,7 @@ class PostRemote @Inject constructor(override val service: PostService) :
 
     fun getMyPost(userIdx: Int): Single<List<AllPostResponse>> =
         service.getMyPost(userIdx).map(getResponseData())
+
+    fun putPostEnded(postIdx: Int): Single<Boolean> =
+        service.putPostEnd(postIdx).map(getResponseData());
 }
