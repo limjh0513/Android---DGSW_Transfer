@@ -3,6 +3,7 @@ package kr.hs.dgsw.data.network.remote
 import io.reactivex.rxjava3.core.Single
 import kr.hs.dgsw.data.base.BaseRemote
 import kr.hs.dgsw.data.network.response.ApplyResponse
+import kr.hs.dgsw.data.network.response.MyAllApplyResponse
 import kr.hs.dgsw.data.network.response.MyApplyResponse
 import kr.hs.dgsw.data.network.service.ApplyService
 import kr.hs.dgsw.domain.request.ApplyRequest
@@ -14,7 +15,7 @@ class ApplyRemote @Inject constructor(override val service: ApplyService) :
     fun getApply(idx: Int): Single<List<ApplyResponse>> =
         service.getApply(idx).map(getResponseData())
 
-    fun getMyApply(idx: Int): Single<List<ApplyResponse>> =
+    fun getMyApply(idx: Int): Single<List<MyAllApplyResponse>> =
         service.getMyApply(idx).map(getResponseData())
 
     fun getPostMyApply(postIdx: Int, userIdx: Int): Single<MyApplyResponse> =

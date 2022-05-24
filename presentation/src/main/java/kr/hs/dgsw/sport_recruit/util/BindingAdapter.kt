@@ -10,10 +10,7 @@ import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import de.hdodenhof.circleimageview.CircleImageView
-import kr.hs.dgsw.domain.model.Apply
-import kr.hs.dgsw.domain.model.DetailPost
-import kr.hs.dgsw.domain.model.Post
-import kr.hs.dgsw.domain.model.User
+import kr.hs.dgsw.domain.model.*
 import kr.hs.dgsw.sport_recruit.R
 import kotlin.math.roundToInt
 
@@ -92,6 +89,30 @@ object BindingAdapter {
         }
 
         textView.text = "${post.currentPersonal}/${post.personal}"
+    }
+
+    @SuppressLint("ResourceAsColor")
+    @BindingAdapter("setPersonalMyApply")
+    @JvmStatic
+    fun setPersonalMyApply(textView: TextView, item: MyAllApply) {
+
+        if (item.postState < 2) {
+            when (((item.currentPersonnel / item.personnel.toFloat()) * 100).roundToInt()) {
+                in 0..33 -> textView.setTextColor(ContextCompat.getColor(textView.context,
+                    R.color.color_safe))
+                in 34..66 -> textView.setTextColor(ContextCompat.getColor(textView.context,
+                    R.color.color_caution))
+                in 67..99 -> textView.setTextColor(ContextCompat.getColor(textView.context,
+                    R.color.color_danger))
+                else -> textView.setTextColor(ContextCompat.getColor(textView.context,
+                    R.color.color_end))
+            }
+        } else {
+            textView.setTextColor(ContextCompat.getColor(textView.context,
+                R.color.color_end))
+        }
+
+        textView.text = "${item.currentPersonnel}/${item.personnel}"
     }
 
     @SuppressLint("ResourceAsColor")

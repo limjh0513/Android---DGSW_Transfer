@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="kr.hs.dgsw.domain.model.MyAllApply" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mya_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/mya_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/jalnan"
+            android:text="@{item.title}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen_my_write"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="축구할 사람?" />
+
+        <TextView
+            android:id="@+id/mya_personnel"
+            setPersonalMyApply="@{item}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/jalnan"
+            android:textSize="@dimen/dimen_my_write"
+            app:layout_constraintBottom_toBottomOf="@+id/mya_title"
+            app:layout_constraintStart_toEndOf="@+id/mya_title"
+            app:layout_constraintTop_toTopOf="@+id/mya_title"
+            tools:text="TextView" />
+
+        <TextView
+            android:id="@+id/mya_state"
+            setApplyState="@{item.state}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/jalnan"
+            android:textSize="@dimen/dimen_my_write"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="TextView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

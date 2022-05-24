@@ -5,7 +5,7 @@ import androidx.lifecycle.Observer
 import dagger.hilt.android.AndroidEntryPoint
 import kr.hs.dgsw.data.util.PreferenceManager
 import kr.hs.dgsw.sport_recruit.R
-import kr.hs.dgsw.sport_recruit.adapter.ApplyListAdapter
+import kr.hs.dgsw.sport_recruit.adapter.MyApplyListAdapter
 import kr.hs.dgsw.sport_recruit.adapter.PostListAdapter
 import kr.hs.dgsw.sport_recruit.base.BaseFragment
 import kr.hs.dgsw.sport_recruit.databinding.FragmentUserBinding
@@ -19,7 +19,7 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>() {
         get() = R.layout.fragment_user
 
     lateinit var postAdapter: PostListAdapter
-    lateinit var applyAdapter: ApplyListAdapter
+    lateinit var myApplyAdapter: MyApplyListAdapter
 
     override fun observerViewModel() {
         setAdapter()
@@ -35,7 +35,7 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>() {
             })
 
             onSuccessGetMyApply.observe(this@UserFragment, Observer {
-                applyAdapter.submitList(it)
+                myApplyAdapter.submitList(it)
             })
 
             onErrorEvent.observe(this@UserFragment, Observer {
@@ -46,11 +46,11 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>() {
     }
 
     private fun setAdapter() {
-        applyAdapter = ApplyListAdapter()
+        myApplyAdapter = MyApplyListAdapter(requireContext())
         postAdapter = PostListAdapter(requireActivity())
 
         mBinding.userRecyclerWrite.adapter = postAdapter
-        mBinding.userRecyclerApply.adapter = applyAdapter
+        mBinding.userRecyclerApply.adapter = myApplyAdapter
     }
 
     private fun initUser() {

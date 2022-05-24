@@ -3,6 +3,7 @@ package kr.hs.dgsw.data.network.service
 import io.reactivex.rxjava3.core.Single
 import kr.hs.dgsw.data.network.response.ApplyResponse
 import kr.hs.dgsw.data.network.response.BaseResponse
+import kr.hs.dgsw.data.network.response.MyAllApplyResponse
 import kr.hs.dgsw.data.network.response.MyApplyResponse
 import kr.hs.dgsw.domain.request.ApplyRequest
 import retrofit2.Response
@@ -13,7 +14,7 @@ interface ApplyService {
     fun getApply(@Path("idx") idx: Int): Single<Response<BaseResponse<List<ApplyResponse>>>>
 
     @GET("apply/get/my/{userIdx}")
-    fun getMyApply(@Path("userIdx") idx: Int): Single<Response<BaseResponse<List<ApplyResponse>>>>
+    fun getMyApply(@Path("userIdx") idx: Int): Single<Response<BaseResponse<List<MyAllApplyResponse>>>>
 
     @GET("apply/get/{postIdx}/{userIdx}")
     fun getPostMyApply(

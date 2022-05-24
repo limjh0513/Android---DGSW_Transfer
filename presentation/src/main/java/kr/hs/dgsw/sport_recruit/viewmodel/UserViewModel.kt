@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.observers.DisposableSingleObserver
 import kr.hs.dgsw.domain.model.Apply
+import kr.hs.dgsw.domain.model.MyAllApply
 import kr.hs.dgsw.domain.model.Post
 import kr.hs.dgsw.domain.model.User
 import kr.hs.dgsw.domain.usecase.apply.GetMyApplyUseCase
@@ -26,8 +27,8 @@ class UserViewModel @Inject constructor(
     private val _onSuccessGetMyPost = MutableLiveData<List<Post>>()
     val onSuccessGetMyPost: LiveData<List<Post>> get() = _onSuccessGetMyPost
 
-    private val _onSuccessGetMyApply = MutableLiveData<List<Apply>>()
-    val onSuccessGetMyApply: LiveData<List<Apply>> get() = _onSuccessGetMyApply
+    private val _onSuccessGetMyApply = MutableLiveData<List<MyAllApply>>()
+    val onSuccessGetMyApply: LiveData<List<MyAllApply>> get() = _onSuccessGetMyApply
 
     fun getUserData(userIdx: Int) {
         addDisposable(getUserUseCase.buildUseCaseObservable(InquireUserUseCase.Params(userIdx)),
@@ -56,8 +57,8 @@ class UserViewModel @Inject constructor(
     }
 
     fun getMyApply(userIdx: Int){
-        addDisposable(getMyApplyUseCase.buildUseCaseObservable((GetMyApplyUseCase.Params(userIdx))), object: DisposableSingleObserver<List<Apply>>(){
-            override fun onSuccess(t: List<Apply>) {
+        addDisposable(getMyApplyUseCase.buildUseCaseObservable((GetMyApplyUseCase.Params(userIdx))), object: DisposableSingleObserver<List<MyAllApply>>(){
+            override fun onSuccess(t: List<MyAllApply>) {
                 _onSuccessGetMyApply.value = t
             }
 
