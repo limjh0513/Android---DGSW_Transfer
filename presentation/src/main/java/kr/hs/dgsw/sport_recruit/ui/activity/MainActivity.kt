@@ -19,7 +19,26 @@ class MainActivity :
 
     override fun observeViewModel() {
         setBottomNavigation()
+    }
 
+    fun changeBottomNavigationPosition(position: Int) {
+        when (position) {
+            0 -> {
+                mBinding.bottomNavbar.selectedItemId = R.id.page_write
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.frameLayout, WriteFragment()).commit()
+            }
+            1 -> {
+                mBinding.bottomNavbar.selectedItemId = R.id.page_home
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.frameLayout, HomeFragment()).commit()
+            }
+            2 -> {
+                mBinding.bottomNavbar.selectedItemId = R.id.page_user
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.frameLayout, UserFragment()).commit()
+            }
+        }
     }
 
     fun setBottomNavigation() {
