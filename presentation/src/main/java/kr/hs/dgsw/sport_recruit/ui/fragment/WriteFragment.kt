@@ -27,8 +27,6 @@ class WriteFragment : BaseFragment<FragmentWriteBinding, WriteViewModel>() {
         with(mViewModel) {
             onSuccessWritePost.observe(this@WriteFragment, Observer {
                 toast(requireContext(), "게시글 작성 성공!")
-                val a = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navbar)
-                a.selectedItemId = R.id.page_home
                 (requireActivity() as? MainActivity)?.changeBottomNavigationPosition(1)
                 requireActivity().supportFragmentManager.beginTransaction()
                     .replace(R.id.frameLayout, HomeFragment()).commit()
@@ -62,13 +60,10 @@ class WriteFragment : BaseFragment<FragmentWriteBinding, WriteViewModel>() {
     }
 
     private fun dateTimeCheck(time: String?): Boolean {
-        Log.e("asdf", "${time}")
         if (time != null) {
             val pattern =
                 "\\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01]) (0[1-9]|1[0-9]|2[0-4]):(0[0-9]|[1-5][0-9])"
 
-
-            Log.e("asdf", "${Pattern.matches(pattern, time)}")
             return Pattern.matches(pattern, time)
         }
 

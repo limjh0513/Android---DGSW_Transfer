@@ -54,9 +54,7 @@ class DetailActivity : BaseActivity<ActivityDetailBinding, DetailViewModel>() {
             onSuccessGetMyApply.observe(this@DetailActivity, Observer {
                 applyIdx = it.idx
                 applyState = applyState ?: it.state
-                Log.d("dasfs", applyState!!.toString())
                 mBinding.applyState = applyState!!
-                Log.d("dasfs", applyState!!.toString())
             })
 
             onSuccessGetUser.observe(this@DetailActivity, Observer {

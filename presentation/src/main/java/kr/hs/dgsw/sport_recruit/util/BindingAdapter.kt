@@ -36,7 +36,8 @@ object BindingAdapter {
     @JvmStatic
     fun setImage(circleImageView: CircleImageView, url: String?) {
         if (url != null) {
-            Glide.with(circleImageView.context).load(url).error(R.drawable.ic_humen)
+            Glide.with(circleImageView.context).load(url).placeholder(R.drawable.ic_humen)
+                .error(R.drawable.ic_humen)
                 .into(circleImageView)
         }
     }
@@ -158,7 +159,6 @@ object BindingAdapter {
     @BindingAdapter("setApplyBtn")
     @JvmStatic
     fun setApplyBtn(button: Button, applyState: Int) {
-        Log.d("asfasdf","${applyState}")
         when (applyState) {
             -1 -> { // 신청 X
                 button.background = ContextCompat.getDrawable(button.context,
