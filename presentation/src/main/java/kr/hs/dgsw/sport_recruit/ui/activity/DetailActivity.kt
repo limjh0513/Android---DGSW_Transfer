@@ -1,6 +1,5 @@
 package kr.hs.dgsw.sport_recruit.ui.activity
 
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
@@ -10,7 +9,6 @@ import kr.hs.dgsw.sport_recruit.R
 import kr.hs.dgsw.sport_recruit.adapter.ApplyListAdapter
 import kr.hs.dgsw.sport_recruit.base.BaseActivity
 import kr.hs.dgsw.sport_recruit.databinding.ActivityDetailBinding
-import kr.hs.dgsw.sport_recruit.util.testLog
 import kr.hs.dgsw.sport_recruit.util.toast
 import kr.hs.dgsw.sport_recruit.viewmodel.DetailViewModel
 
@@ -82,19 +80,25 @@ class DetailActivity : BaseActivity<ActivityDetailBinding, DetailViewModel>() {
                     getPostApply(idx)
                     getDetailPost(idx)
                 } else {
-                    toast("스포츠 신청 실패... 다시 시도해주세요")
+                    toast("스포츠 신청 실패... 게시글 상태를 다시 불러옵니다.")
+                    afterGetDetail()
                 }
             })
 
             onSuccessPutApply.observe(this@DetailActivity, Observer {
-                if(applyState != 2){
-                    applyState = it
-                }
+                if (it < 0) {
+                    if (applyState != 2) {
+                        applyState = it
+                    }
 
-                mBinding.applyState = applyState!!
-                toast("신청 상태 수정 완료!")
-                getPostApply(idx)
-                getDetailPost(idx)
+                    mBinding.applyState = applyState!!
+                    toast("신청 상태 수정 완료!")
+                    getPostApply(idx)
+                    getDetailPost(idx)
+                } else {
+                    toast("스포츠 신청 실패... 게시글 상태를 다시 불러옵니다.")
+                    afterGetDetail()
+                }
             })
 
             onSuccessPutPostEnded.observe(this@DetailActivity, Observer {
@@ -135,5 +139,9 @@ class DetailActivity : BaseActivity<ActivityDetailBinding, DetailViewModel>() {
         } else {
             toast("게시글 idx 혹은 유저 정보를 전달받지 못했습니다.")
         }
+    }
+
+    private fun afterGetDetail() {
+        mViewModel.getDetailPost(idx)
     }
 }

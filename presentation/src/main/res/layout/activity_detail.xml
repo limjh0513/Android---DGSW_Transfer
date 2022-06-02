@@ -229,6 +229,7 @@
                         android:layout_marginEnd="16dp"
                         android:layout_marginBottom="24dp"
                         android:orientation="vertical"
+                        android:visibility="invisible"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         app:layout_constraintBottom_toTopOf="@+id/detail_applyBtn"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -250,6 +251,7 @@
                         android:text="@string/string_apply"
                         android:textColor="@color/white"
                         android:textSize="@dimen/dimen_detail_sub"
+                        android:visibility="invisible"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent" />
