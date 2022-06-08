@@ -1,7 +1,6 @@
 package kr.hs.dgsw.sport_recruit.util
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -180,6 +179,18 @@ object BindingAdapter {
                     ContextCompat.getDrawable(button.context, R.drawable.background_button_closing)
                 button.text = "조기 마감"
             }
+        }
+    }
+
+    @BindingAdapter("setDetailTime")
+    @JvmStatic
+    fun setDetailTime(textView: TextView, time: String?) {
+        if (time != null) {
+            val splitted = time.split(" ")
+            val d = splitted[0].split("-")
+            val t = splitted[1].split(":")
+
+            textView.text = "${d[0]}년 ${d[1]}월 ${d[2]}일 ${t[0]}시 ${t[1]}분"
         }
     }
 }

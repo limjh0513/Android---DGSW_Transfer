@@ -183,11 +183,11 @@
 
                     <TextView
                         android:id="@+id/detail_tvDeadline"
+                        setDetailTime="@{post.time.toString()}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
                         android:fontFamily="@font/jalnan"
-                        android:text="@{post.time.toString()}"
                         android:textColor="@color/color_translator"
                         android:textSize="@dimen/dimen_detail_sub"
                         app:layout_constraintBottom_toBottomOf="@+id/detail_hintDeadline"
@@ -200,12 +200,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
-                        android:layout_marginBottom="24dp"
+                        android:layout_marginBottom="16dp"
                         android:fontFamily="@font/jalnan"
                         android:text="@string/string_currentPerson"
                         android:textColor="@color/color_main"
                         android:textSize="@dimen/dimen_detail_personnel"
-                        app:layout_constraintBottom_toTopOf="@+id/detail_recyclerView"
+                        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
                         app:layout_constraintStart_toStartOf="parent" />
 
                     <TextView
@@ -221,20 +221,50 @@
                         app:layout_constraintTop_toTopOf="@+id/detail_hintPerson" />
 
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/detail_recyclerView"
-                        android:layout_width="0dp"
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout"
+                        android:layout_width="match_parent"
                         android:layout_height="180dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginEnd="16dp"
                         android:layout_marginBottom="24dp"
-                        android:orientation="vertical"
-                        android:visibility="invisible"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         app:layout_constraintBottom_toTopOf="@+id/detail_applyBtn"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        tools:listitem="@layout/apply_item" />
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/detail_recyclerView"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:orientation="vertical"
+                            android:visibility="invisible"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:listitem="@layout/apply_item" />
+
+                        <TextView
+                            android:id="@+id/detail_tvHidden"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:fontFamily="@font/jalnan"
+                            android:text="@string/string_hidded"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:gravity="center"
+                            android:visibility="invisible"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <Button
                         android:id="@+id/detail_applyBtn"

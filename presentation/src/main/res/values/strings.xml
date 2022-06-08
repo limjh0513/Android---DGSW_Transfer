@@ -48,4 +48,5 @@
 
     <string name="string_myWrite">내가 쓴 글</string>
     <string name="string_myApply">내 신청 목록</string>
+    <string name="string_hidded">신청 리스트를 숨긴 게시글 입니다!</string>
 </resources>
