@@ -20,12 +20,13 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>() {
 
     lateinit var postAdapter: PostListAdapter
     lateinit var myApplyAdapter: MyApplyListAdapter
+    var userIdx = -1
 
     override fun observerViewModel() {
         setAdapter()
         initUser()
 
-        with(mViewModel){
+        with(mViewModel) {
             onSuccessGetUser.observe(this@UserFragment, Observer {
                 mBinding.user = it
             })
@@ -54,7 +55,7 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>() {
     }
 
     private fun initUser() {
-        val userIdx = PreferenceManager.getUser(requireContext())
+        userIdx = PreferenceManager.getUser(requireContext())
 
         if (userIdx > -1) {
             mViewModel.getUserData(userIdx)
@@ -63,6 +64,16 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>() {
 
         } else {
             toast(requireContext(), "회원을 조회하지 못했습니다. 다시 로그인해주세요")
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        if (userIdx > -1) {
+            mViewModel.getUserData(userIdx)
+            mViewModel.getMyPost(userIdx)
+            mViewModel.getMyApply(userIdx)
         }
     }
 }

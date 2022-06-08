@@ -1,5 +1,6 @@
 package kr.hs.dgsw.sport_recruit.ui.activity
 
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
@@ -39,6 +40,7 @@ class DetailActivity : BaseActivity<ActivityDetailBinding, DetailViewModel>() {
                 }
 
                 mBinding.detailRecyclerView.isVisible = hidden != 1
+                mBinding.detailTvHidden.isVisible = hidden != 0
                 mBinding.detailApplyBtn.isVisible = it.state != 2
 
             })
@@ -73,6 +75,8 @@ class DetailActivity : BaseActivity<ActivityDetailBinding, DetailViewModel>() {
             })
 
             onSuccessPostApply.observe(this@DetailActivity, Observer {
+                Log.e("dfafasd", "${it}")
+
                 if (it) {
                     toast("스포츠 신청 성공!")
                     applyState = 0
@@ -86,7 +90,8 @@ class DetailActivity : BaseActivity<ActivityDetailBinding, DetailViewModel>() {
             })
 
             onSuccessPutApply.observe(this@DetailActivity, Observer {
-                if (it < 0) {
+                Log.e("sadfa", "${it}")
+                if (it >= 0) {
                     if (applyState != 2) {
                         applyState = it
                     }
