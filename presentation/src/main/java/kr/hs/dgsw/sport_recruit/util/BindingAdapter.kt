@@ -27,7 +27,7 @@ object BindingAdapter {
     @JvmStatic
     fun setGradeNameTv(textView: TextView, apply: Apply?) {
         if (apply != null) {
-            textView.text = "${apply.grade}-${apply.room}-${apply.number} ${apply.name}"
+            textView.text = "${apply.grade}-${apply.room}-${apply.number}   ${apply.name}"
         }
     }
 
